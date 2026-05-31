@@ -11,9 +11,7 @@ from typing import Optional, Dict, Any
 DB_PATH = os.environ.get("MATCHA_DB_PATH", "matcha_sessions.db")
 
 
-# ─────────────────────────────────────────────
 # Init Database
-# ─────────────────────────────────────────────
 
 def init_db():
     """Buat tabel sessions jika belum ada."""
@@ -30,9 +28,7 @@ def init_db():
     conn.close()
 
 
-# ─────────────────────────────────────────────
 # Save Session
-# ─────────────────────────────────────────────
 
 def save_session(session_id: str, state: Dict[str, Any]):
     """
@@ -70,9 +66,7 @@ def save_session(session_id: str, state: Dict[str, Any]):
     conn.close()
 
 
-# ─────────────────────────────────────────────
 # Load Session
-# ─────────────────────────────────────────────
 
 def load_session(session_id: str) -> Optional[Dict[str, Any]]:
     """

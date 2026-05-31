@@ -21,3 +21,5 @@ def extract_cv_text(file) -> str:
     elif filename.endswith(".docx"):
         return extract_text_from_docx(file)
     return ""
+
+

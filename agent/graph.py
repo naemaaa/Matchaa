@@ -11,9 +11,7 @@ from .nodes import (
 )
 
 
-# ─────────────────────────────────────────────
 # Router: tentukan node berikutnya setelah profiler
-# ─────────────────────────────────────────────
 
 def route_after_profiler(state: MatchaState) -> str:
     """

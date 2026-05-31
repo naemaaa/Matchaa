@@ -31,9 +31,8 @@ from .chroma_client import (
 from agent import state
 from .tavily_search import search_all_parallel, format_tavily_results_for_prompt
 
-# ─────────────────────────────────────────────
 # Setup LLM — Groq
-# ─────────────────────────────────────────────
+
 from dotenv import load_dotenv
 load_dotenv(override=True)
 
