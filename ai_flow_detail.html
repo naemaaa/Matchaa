@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alur AI — Matcha Career Assistant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:       #1e7a35;
+      --green-light: #e8f5ec;
+      --green-mid:   #b8ddc4;
+      --amber:       #d97706;
+      --amber-light: #fef3c7;
+      --purple:      #7c3aed;
+      --purple-light:#f5f3ff;
+      --blue:        #2563eb;
+      --blue-light:  #eff6ff;
+      --gray:        #6b7280;
+      --gray-light:  #f3f4f6;
+      --text:        #111827;
+      --text-muted:  #6b7280;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f0f4f1;
+      min-height: 100vh;
+      padding: 52px 24px 80px;
+    }
+
+    /* ── Header ── */
+    .header { text-align: center; margin-bottom: 48px; }
+    .header h1 {
+      font-size: clamp(22px, 3.5vw, 38px);
+      font-weight: 900; color: var(--text);
+      letter-spacing: -0.5px; margin-bottom: 8px;
+    }
+    .header h1 em { font-style: normal; color: var(--green); }
+    .header p { font-size: 13px; color: var(--text-muted); }
+
+    /* ── Stack container ── */
+    .stack {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0;
+      max-width: 860px; margin: 0 auto;
+    }
+
+    /* ── Down arrow connector ── */
+    .connector {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0;
+      width: 2px; position: relative;
+    }
+    .connector-line {
+      width: 2px; height: 32px;
+      background: linear-gradient(to bottom, var(--green), var(--green));
+    }
+    .connector-arrow {
+      width: 0; height: 0;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-top: 10px solid var(--green);
+    }
+    .connector-label {
+      position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+      background: white; border: 1px solid var(--green-mid);
+      color: var(--green); font-size: 9px; font-weight: 700;
+      padding: 2px 8px; border-radius: 20px; white-space: nowrap;
+      box-shadow: 0 1px 4px rgba(30,122,53,0.12);
+    }
+
+    /* ── Step block ── */
+    .step {
+      width: 100%; background: #fff;
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      border: 1.5px solid #e5e7eb;
+      transition: box-shadow .2s;
+    }
+    .step:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.11); }
+
+    /* step header bar */
+    .step-header {
+      display: flex; align-items: center; gap: 14px;
+      padding: 18px 24px;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 36px; height: 36px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 900; color: white;
+    }
+    .step-title-block { flex: 1; }
+    .step-title {
+      font-size: 15px; font-weight: 800; color: var(--text);
+      margin-bottom: 2px;
+    }
+    .step-subtitle { font-size: 11px; color: var(--text-muted); font-weight: 500; }
+
+    /* step body */
+    .step-body { padding: 0 24px 22px; }
+    .step-desc {
+      font-size: 13px; color: #374151; line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    /* ── Info rows ── */
+    .info-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 10px; margin-bottom: 14px;
+    }
+    .info-grid.single { grid-template-columns: 1fr; }
+    .info-grid.triple { grid-template-columns: 1fr 1fr 1fr; }
+
+    .info-box {
+      background: var(--gray-light); border-radius: 12px;
+      padding: 12px 14px; border: 1px solid #e5e7eb;
+    }
+    .info-box.green  { background: var(--green-light); border-color: var(--green-mid); }
+    .info-box.amber  { background: var(--amber-light); border-color: #fcd34d; }
+    .info-box.purple { background: var(--purple-light); border-color: #ddd6fe; }
+    .info-box.blue   { background: var(--blue-light);  border-color: #bfdbfe; }
+
+    .info-label {
+      font-size: 9px; font-weight: 800; letter-spacing: .5px;
+      text-transform: uppercase; margin-bottom: 5px;
+      color: var(--gray);
+    }
+    .info-box.green  .info-label { color: var(--green); }
+    .info-box.amber  .info-label { color: var(--amber); }
+    .info-box.purple .info-label { color: var(--purple); }
+    .info-box.blue   .info-label { color: var(--blue); }
+
+    .info-val {
+      font-size: 11.5px; color: var(--text); line-height: 1.55;
+    }
+    code {
+      font-family: 'Courier New', monospace;
+      font-size: 11px; font-weight: 700;
+      background: rgba(0,0,0,0.06); padding: 1px 5px;
+      border-radius: 4px;
+    }
+
+    /* ── Chip ── */
+    .chip-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 10px; font-weight: 700;
+      padding: 4px 10px; border-radius: 20px;
+      border: 1.5px solid;
+    }
+    .chip.green  { background: var(--green-light);  border-color: var(--green-mid); color: var(--green); }
+    .chip.amber  { background: var(--amber-light);  border-color: #fcd34d; color: var(--amber); }
+    .chip.purple { background: var(--purple-light); border-color: #ddd6fe; color: var(--purple); }
+    .chip.blue   { background: var(--blue-light);   border-color: #bfdbfe; color: var(--blue); }
+    .chip.gray   { background: var(--gray-light);   border-color: #d1d5db; color: var(--gray); }
+
+    /* ── Branch section ── */
+    .branch-label {
+      font-size: 11px; font-weight: 800; color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: .5px;
+      margin-bottom: 10px;
+    }
+    .branches { display: flex; flex-direction: column; gap: 10px; }
+    .branch {
+      border-radius: 14px; padding: 14px 16px;
+      border: 1.5px solid; position: relative;
+    }
+    .branch.green  { background: var(--green-light);  border-color: var(--green-mid); }
+    .branch.amber  { background: var(--amber-light);  border-color: #fcd34d; }
+    .branch.blue   { background: var(--blue-light);   border-color: #bfdbfe; }
+    .branch.purple { background: var(--purple-light); border-color: #ddd6fe; }
+
+    .branch-head {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 8px;
+    }
+    .branch-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .branch.green  .branch-icon { background: var(--green); }
+    .branch.amber  .branch-icon { background: var(--amber); }
+    .branch.blue   .branch-icon { background: var(--blue); }
+    .branch.purple .branch-icon { background: var(--purple); }
+
+    .branch-name  { font-size: 12px; font-weight: 800; color: var(--text); }
+    .branch-intent { font-size: 9.5px; font-weight: 600; color: var(--text-muted); }
+    .branch-desc  { font-size: 11.5px; color: #374151; line-height: 1.6; }
+
+    .branch-detail {
+      margin-top: 8px; padding-top: 8px;
+      border-top: 1px dashed rgba(0,0,0,0.12);
+      display: flex; flex-wrap: wrap; gap: 6px;
+    }
+
+    /* ── Fallback note ── */
+    .fallback {
+      display: flex; align-items: flex-start; gap: 8px;
+      background: var(--amber-light); border: 1px solid #fcd34d;
+      border-radius: 10px; padding: 10px 12px; margin-top: 10px;
+    }
+    .fallback-icon { flex-shrink: 0; margin-top: 1px; }
+    .fallback p { font-size: 11px; color: #92400e; line-height: 1.55; }
+
+    /* ── Section divider ── */
+    .divider {
+      width: 100%; border: none;
+      border-top: 1.5px dashed var(--green-mid);
+      margin: 16px 0;
+    }
+
+    /* ── Legend ── */
+    .legend {
+      display: flex; flex-wrap: wrap; gap: 14px;
+      justify-content: center; margin-top: 40px;
+    }
+    .legend-item {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 11.5px; color: var(--text-muted);
+    }
+    .legend-dot {
+      width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0;
+    }
+
+    /* ── Color themes per step ── */
+    .step[data-theme="green"]  .step-header { background: var(--green-light); border-bottom: 1.5px solid var(--green-mid); }
+    .step[data-theme="amber"]  .step-header { background: var(--amber-light); border-bottom: 1.5px solid #fcd34d; }
+    .step[data-theme="purple"] .step-header { background: var(--purple-light); border-bottom: 1.5px solid #ddd6fe; }
+    .step[data-theme="blue"]   .step-header { background: var(--blue-light);  border-bottom: 1.5px solid #bfdbfe; }
+    .step[data-theme="dark"]   .step-header { background: #1e7a35; border-bottom: none; }
+    .step[data-theme="dark"]   .step-title  { color: #fff; }
+    .step[data-theme="dark"]   .step-subtitle { color: rgba(255,255,255,.75); }
+
+    .step[data-theme="green"]  .step-num { background: var(--green); }
+    .step[data-theme="amber"]  .step-num { background: var(--amber); }
+    .step[data-theme="purple"] .step-num { background: var(--purple); }
+    .step[data-theme="blue"]   .step-num { background: var(--blue); }
+    .step[data-theme="dark"]   .step-num { background: rgba(255,255,255,0.2); color: #fff; }
+
+    /* ── START/END nodes ── */
+    .terminal {
+      width: 90px; height: 90px; border-radius: 50%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 4px; font-size: 12px; font-weight: 900;
+      letter-spacing: .5px; flex-shrink: 0;
+    }
+    .terminal.start { background: var(--green); color: white; box-shadow: 0 6px 24px rgba(30,122,53,0.35); }
+    .terminal.end   { background: var(--green-light); border: 2.5px solid var(--green); color: var(--green); }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .info-grid, .info-grid.triple { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <div class="header">
+    <h1>Cara Kerja <em>Matcha Career AI</em> — End to End</h1>
+    <p>Panduan visual lengkap: dari user kirim pesan hingga jawaban muncul di layar</p>
+  </div>
+
+  <div class="stack">
+
+    <!-- ════════ START ════════ -->
+    <div class="terminal start">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><polygon points="6,3 20,12 6,21" fill="white"/></svg>
+      MULAI
+    </div>
+
+    <div class="connector">
+      <div class="connector-line"></div>
+      <div class="connector-arrow"></div>
+    </div>
+
+    <!-- ════════ STEP 1: User Action ════════ -->
+    <div class="step" data-theme="blue">
+      <div class="step-header">
+        <div class="step-num">1</div>
+        <div class="step-title-block">
+          <div class="step-title">User Melakukan Aksi di Aplikasi</div>
+          <div class="step-subtitle">React (Vite) · Port 5173 · http://localhost:5173</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <p class="step-desc">
+          User membuka aplikasi Matcha di browser. Di sini ada <strong>3 jenis aksi</strong> yang bisa dilakukan:
+        </p>
+        <div class="info-grid triple">
+          <div class="info-box blue">
+            <div class="info-label">💬 Aksi 1 — Chat</div>
+            <div class="info-val">Ketik pesan di kotak chat, misalnya <em>"Saya ingin jadi Data Analyst"</em>. Dikirim ke <code>POST /chat</code></div>
+          </div>
+          <div class="info-box blue">
+            <div class="info-label">📄 Aksi 2 — Upload CV/LinkedIn</div>
+            <div class="info-val">Drag & drop file PDF. Dikirim ke <code>POST /upload</code> dengan <code>file_type</code> = <em>cv</em> atau <em>linkedin</em></div>
+          </div>
+          <div class="info-box blue">
+            <div class="info-label">🔍 Aksi 3 — Analisis Job</div>
+            <div class="info-val">Paste Job Description lalu klik Analisis. Dikirim ke <code>POST /analyze-job</code> (shortcut — skip 2 langkah AI)</div>
+          </div>
+        </div>
+        <div class="chip-row">
+          <span class="chip blue">React 19 + Vite 8</span>
+          <span class="chip blue">Axios untuk HTTP request</span>
+          <span class="chip blue">session_id unik per user</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector">
+      <div class="connector-line"></div>
+      <div class="connector-label">HTTP Request ke backend</div>
+      <div class="connector-line"></div>
+      <div class="connector-arrow"></div>
+    </div>
+
+    <!-- ════════ STEP 2: FastAPI Backend ════════ -->
+    <div class="step" data-theme="green">
+      <div class="step-header">
+        <div class="step-num">2</div>
+        <div class="step-title-block">
+          <div class="step-title">FastAPI Backend Menerima Request</div>
+          <div class="step-subtitle">main.py · Port 8000 · http://localhost:8000</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <p class="step-desc">
+          Server FastAPI di <code>main.py</code> menerima permintaan dari frontend. Sebelum menjalankan AI, backend selalu <strong>memuat data lama user dari database</strong> agar tidak lupa konteks percakapan sebelumnya.
+        </p>
+        <div class="info-grid">
+          <div class="info-box green">
+            <div class="info-label">📥 Yang diterima</div>
+            <div class="info-val"><code>session_id</code>, <code>user_input</code>, dan opsional <code>agent_state</code> dari frontend. Untuk upload: file PDF + <code>file_type</code>.</div>
+          </div>
+          <div class="info-box green">
+            <div class="info-label">🗄️ Muat sesi lama</div>
+            <div class="info-val">Panggil <code>load_session(session_id)</code> → ambil data profil, CV, riwayat intent, roadmap dari SQLite. Digabung ke state saat ini.</div>
+          </div>
+        </div>
+        <hr class="divider"/>
+        <p class="step-desc" style="margin-bottom:10px;">
+          Jika aksinya adalah <strong>Upload PDF</strong>: file langsung diekstrak oleh <strong>PyMuPDF</strong> menjadi teks mentah, disimpan ke <code>uploads/</code> (untuk preview), dan disimpan ke SQLite. <em>Tidak perlu LLM!</em>
+        </p>
+        <div class="info-grid">
+          <div class="info-box">
+            <div class="info-label">📂 File disimpan di</div>
+            <div class="info-val"><code>uploads/{session_id}_{file_type}_{filename}.pdf</code></div>
+          </div>
+          <div class="info-box">
+            <div class="info-label">💾 Teks disimpan ke</div>
+            <div class="info-val"><code>session["cv_text"]</code> atau <code>session["linkedin_text"]</code> di SQLite</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector">
+      <div class="connector-line"></div>
+      <div class="connector-label">Jalankan AI Graph</div>
+      <div class="connector-line"></div>
+      <div class="connector-arrow"></div>
+    </div>
+
+    <!-- ════════ STEP 3: LangGraph ════════ -->
+    <div class="step" data-theme="green">
+      <div class="step-header">
+        <div class="step-num">3</div>
+        <div class="step-title-block">
+          <div class="step-title">LangGraph Memulai Pipeline AI</div>
+          <div class="step-subtitle">agent/graph.py · matcha_graph.invoke(state)</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <p class="step-desc">
+          <strong>LangGraph</strong> adalah framework yang mengatur urutan node AI seperti sebuah alur kerja. State (data) mengalir dari satu node ke node berikutnya. Semua data user (<code>MatchaState</code>) dibawa sepanjang alur ini.
+        </p>
+        <div class="info-grid">
+          <div class="info-box green">
+            <div class="info-label">📦 State yang dibawa</div>
+            <div class="info-val"><code>user_input</code>, <code>user_profile</code>, <code>cv_text</code>, <code>linkedin_text</code>, <code>messages</code>, <code>detected_intent</code>, <code>learning_roadmap</code>, dll.</div>
+          </div>
+          <div class="info-box green">
+            <div class="info-label">🔀 Cara kerjanya</div>
+            <div class="info-val">Setiap node baca state → lakukan tugasnya → kembalikan state yang sudah diupdate. Node berikutnya lanjut dari state terbaru.</div>
+          </div>
+        </div>
+        <div class="chip-row">
+          <span class="chip green">Mulai dari Node 1: intent_classifier</span>
+          <span class="chip gray">Selalu urut: Node 1 → Node 2 → Router → Node pilihan</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector">
+      <div class="connector-line"></div>
+      <div class="connector-label">Node 1</div>
+      <div class="connector-line"></div>
+      <div class="connector-arrow"></div>
+    </div>
+
+    <!-- ════════ STEP 4: Intent Classifier ════════ -->
+    <div class="step" data-theme="purple">
+      <div class="step-header">
+        <div class="step-num">4</div>
+        <div class="step-title-block">
+          <div class="step-title">Intent Classifier — "User Mau Apa?"</div>
+          <div class="step-subtitle">agent/nodes.py · intent_classifier_node() · Node 1 LangGraph</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <p class="step-desc">
+          Langkah pertama AI: <strong>pahami maksud user</strong>. Node ini menentukan ke mana alur selanjutnya. Ada <strong>2 cara mendeteksi intent</strong>, dipakai berurutan (primary → fallback):
+        </p>
+        <div class="info-grid">
+          <div class="info-box purple">
+            <div class="info-label">🧠 Primary — IndoBERT Lokal</div>
+            <div class="info-val">
+              Model fine-tuned yang sudah di-training khusus untuk Matcha. Berjalan <em>lokal di komputer</em>, tidak perlu internet. Dipanggil lewat fungsi <code>_classify_intent_indobert(user_input)</code>.<br/><br/>
+              Model dimuat sekali saat pertama dipanggil, lalu <strong>di-cache di memory</strong> supaya request berikutnya langsung cepat. Hasilnya: nama intent + confidence score (0–1).
+            </div>
+          </div>
+          <div class="info-box gray">
+            <div class="info-label">⚡ Fallback — Groq LLM</div>
+            <div class="info-val">
+              Jika IndoBERT tidak tersedia atau error, sistem otomatis pakai <strong>Groq API</strong>. Kirim prompt ke model LLM (misal: llama-3.3-70b), minta hasil JSON berisi <code>intent</code> dan <code>confidence</code>.<br/><br/>
+              Ada auto-fallback antar model: <code>llama-3.3-70b</code> → <code>qwen3-32b</code> → <code>llama-3.1-8b</code>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-box" style="margin-bottom:14px;">
+          <div class="info-label">🎯 8 Jenis Intent yang Bisa Dikenali</div>
+          <div class="chip-row" style="margin-top:8px;margin-bottom:0;">
+            <span class="chip green">CAREER_EXPLORATION</span>
+            <span class="chip green">SKILL_INQUIRY</span>
+            <span class="chip green">RESOURCE_REQUEST</span>
+            <span class="chip amber">CONSTRAINT_UPDATE</span>
+            <span class="chip amber">PUSH_BACK</span>
+            <span class="chip amber">CONFIRMATION</span>
+            <span class="chip purple">CV_REVIEW</span>
+            <span class="chip purple">LINKEDIN_REVIEW</span>
+          </div>
+        </div>
+
+        <div class="info-box amber">
+          <div class="info-label">🔄 Bonus: Drift Detection</div>
+          <div class="info-val">
+            Sistem menyimpan riwayat 3 intent terakhir. Kalau intent user tiba-tiba berubah jauh dari pola sebelumnya (misal dari CAREER_EXPLORATION ke PUSH_BACK terus), <code>drift_detected = True</code> dan AI akan kasih notifikasi ke user bahwa ada perubahan arah.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector">
+      <div class="connector-line"></div>
+      <div class="connector-label">Node 2</div>
+      <div class="connector-line"></div>
+      <div class="connector-arrow"></div>
+    </div>
+
+    <!-- ════════ STEP 5: User Profiler ════════ -->
+    <div class="step" data-theme="purple">
+      <div class="step-header">
+        <div class="step-num">5</div>
+        <div class="step-title-block">
+          <div class="step-title">User Profiler — "Siapa Usernya?"</div>
+          <div class="step-subtitle">agent/nodes.py · user_profiler_node() · Node 2 LangGraph</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <p class="step-desc">
+          Node ini membangun atau memperbarui <strong>profil karir user</strong> dari percakapan. Tujuannya: agar AI tahu siapa user, latar belakangnya, dan mau ke mana.
+        </p>
+        <div class="info-grid">
+          <div class="info-box purple">
+            <div class="info-label">⚡ Fast-Path (Hemat Token)</div>
+            <div class="info-val">
+              Kalau <code>user_profile.target_role</code> sudah ada di state (artinya user sudah onboarding), node ini <strong>langsung skip LLM</strong> — hemat waktu dan biaya API yang signifikan.
+            </div>
+          </div>
+          <div class="info-box gray">
+            <div class="info-label">🤖 Pakai Groq LLM (jika perlu)</div>
+            <div class="info-val">
+              Kirim riwayat chat + input user ke LLM. LLM ekstrak info: <code>current_role</code>, <code>target_role</code>, <code>current_skills</code>, <code>hours_per_week</code>, <code>budget_idr</code>, <code>timeline_months</code>.
+            </div>
+          </div>
+        </div>
+        <div class="info-box" style="margin-top:0;">
+          <div class="info-label">🔀 Merge Profil</div>
+          <div class="info-val">Profil baru di-<em>merge</em> ke profil lama. Field yang sudah ada tidak ditimpa kecuali ada nilai baru yang lebih lengkap. Profil terus bertambah seiring percakapan.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector">
+      <div class="connector-line"></div>
+      <div class="connector-label">Conditional Router</div>
+      <div class="connector-line"></div>
+      <div class="connector-arrow"></div>
+    </div>
+
+    <!-- ════════ STEP 6: Router ════════ -->
+    <div class="step" data-theme="green">
+      <div class="step-header">
+        <div class="step-num">6</div>
+        <div class="step-title-block">
+          <div class="step-title">Router — Pilih Jalur yang Tepat</div>
+          <div class="step-subtitle">agent/graph.py · route_after_profiler() · Conditional Edge</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <p class="step-desc">
+          Setelah tahu intent user, router memutuskan <strong>ke node mana alur dilanjutkan</strong>. Ini seperti persimpangan jalan — hanya satu jalur yang dipilih per request.
+        </p>
+        <div class="info-grid">
+          <div class="info-box green"><div class="info-label">CAREER_EXPLORATION · SKILL_INQUIRY · RESOURCE_REQUEST</div><div class="info-val">→ <strong>Skill Gap Analyzer</strong></div></div>
+          <div class="info-box purple"><div class="info-label">CV_REVIEW</div><div class="info-val">→ <strong>CV Reviewer</strong></div></div>
+          <div class="info-box purple"><div class="info-label">LINKEDIN_REVIEW</div><div class="info-val">→ <strong>LinkedIn Reviewer</strong></div></div>
+          <div class="info-box amber"><div class="info-label">PUSH_BACK · CONFIRMATION · CONSTRAINT_UPDATE</div><div class="info-val">→ <strong>General Responder</strong></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector">
+      <div class="connector-line"></div>
+      <div class="connector-label">Pilih 1 dari 4 Node</div>
+      <div class="connector-line"></div>
+      <div class="connector-arrow"></div>
+    </div>
+
+    <!-- ════════ STEP 7: Agent Nodes ════════ -->
+    <div class="step" data-theme="dark">
+      <div class="step-header">
+        <div class="step-num">7</div>
+        <div class="step-title-block">
+          <div class="step-title">Agent Node — Eksekusi Tugas Utama</div>
+          <div class="step-subtitle">agent/nodes.py · Salah satu dari 4 node dijalankan</div>
+        </div>
+      </div>
+      <div class="step-body" style="padding-top:18px;">
+
+        <div class="branches">
+
+          <!-- Branch A: Skill Gap Analyzer -->
+          <div class="branch green">
+            <div class="branch-head">
+              <div class="branch-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+                </svg>
+              </div>
+              <div>
+                <div class="branch-name">Node 3 — Skill Gap Analyzer</div>
+                <div class="branch-intent">Intent: CAREER_EXPLORATION · SKILL_INQUIRY · RESOURCE_REQUEST</div>
+              </div>
+            </div>
+            <div class="branch-desc">
+              Node paling kompleks. Tugasnya: analisis kesenjangan skill user vs kebutuhan industri, dan buat learning roadmap. Cara kerjanya step by step:<br/><br/>
+              <strong>1. Ambil data paralel (2 thread bersamaan):</strong><br/>
+              &nbsp;&nbsp;• <strong>ChromaDB (lokal)</strong>: cari skill yang dibutuhkan untuk target role, daftar job relevan, dan kursus yang cocok<br/>
+              &nbsp;&nbsp;• <strong>Tavily (web search)</strong>: cari tren industri dan skill yang sedang in-demand di internet<br/><br/>
+              <strong>2. Potong teks agar hemat token:</strong> CV dipotong maks 1800 karakter, LinkedIn 1000 karakter, Job Description 1500 karakter.<br/><br/>
+              <strong>3. Kirim semua data ke Groq LLM</strong> dengan prompt detail. LLM menghasilkan JSON berisi: <code>chat_response</code>, <code>match_rate</code>, <code>skill_gaps</code>, <code>ats_analysis</code>, <code>learning_roadmap</code>.<br/><br/>
+              <strong>4. Hitung ATS Match Rate dengan ML Model:</strong>
+            </div>
+            <div class="branch-detail">
+              <span class="chip amber">
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                ATS ML API :8080 (primary)
+              </span>
+              <span class="chip gray">local import fallback</span>
+              <span class="chip green">
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#1e7a35" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                ChromaDB + Tavily paralel
+              </span>
+              <span class="chip green">Groq LLM JSON output</span>
+            </div>
+
+            <div class="fallback">
+              <div class="fallback-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              </div>
+              <p><strong>Cara kerja ATS ML Model:</strong> Kirim CV + Job Description ke <code>POST http://localhost:8080/predict</code>. Model Random Forest mengekstrak 4 fitur (TF-IDF similarity, evidence score, experience alignment, keyword density) lalu prediksi skor 0–100. Jika API offline, langsung import <code>predict_ats_match_rate()</code> dari lokal. Skor ini <em>menimpa</em> skor dari LLM supaya lebih akurat dan konsisten.</p>
+            </div>
+          </div>
+
+          <!-- Branch B: CV Reviewer -->
+          <div class="branch purple">
+            <div class="branch-head">
+              <div class="branch-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+                </svg>
+              </div>
+              <div>
+                <div class="branch-name">Node 4 — CV Reviewer</div>
+                <div class="branch-intent">Intent: CV_REVIEW</div>
+              </div>
+            </div>
+            <div class="branch-desc">
+              Ambil teks CV dari state (sudah diekstrak saat upload). Kirim ke Groq LLM bersama <code>target_role</code> dan <code>skill_gaps</code>. LLM menghasilkan review detail: kelebihan CV, kekurangan, dan rekomendasi keyword ATS yang perlu ditambahkan. Output: <code>chat_response</code> + <code>ats_analysis</code>.
+            </div>
+            <div class="branch-detail">
+              <span class="chip purple">Groq LLM</span>
+              <span class="chip gray">cv_text dipotong maks 2500 karakter</span>
+              <span class="chip purple">output: cv_pros, cv_cons, suggested_keywords</span>
+            </div>
+          </div>
+
+          <!-- Branch C: LinkedIn Reviewer -->
+          <div class="branch purple">
+            <div class="branch-head">
+              <div class="branch-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+                </svg>
+              </div>
+              <div>
+                <div class="branch-name">Node 5 — LinkedIn Reviewer</div>
+                <div class="branch-intent">Intent: LINKEDIN_REVIEW</div>
+              </div>
+            </div>
+            <div class="branch-desc">
+              Sama seperti CV Reviewer tapi untuk profil LinkedIn yang di-export sebagai PDF. LLM menganalisis headline, summary, bagian experience, dan skills. Memberikan saran optimasi agar profil lebih mudah ditemukan recruiter dan sesuai target karir.
+            </div>
+            <div class="branch-detail">
+              <span class="chip purple">Groq LLM</span>
+              <span class="chip gray">linkedin_text dipotong maks 1500 karakter</span>
+              <span class="chip purple">saran: headline, about, skills section</span>
+            </div>
+          </div>
+
+          <!-- Branch D: General Responder -->
+          <div class="branch amber">
+            <div class="branch-head">
+              <div class="branch-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="branch-name">Node 6 — General Responder</div>
+                <div class="branch-intent">Intent: PUSH_BACK · CONFIRMATION · CONSTRAINT_UPDATE</div>
+              </div>
+            </div>
+            <div class="branch-desc">
+              Node untuk percakapan umum yang tidak butuh analisis berat. Jika user menolak rekomendasi (PUSH_BACK), AI mengakui dan menawarkan alternatif. Jika user update constraint (CONSTRAINT_UPDATE), AI mencatat dan menawarkan revisi roadmap. Jika ada drift terdeteksi, AI tambahkan notifikasi perubahan arah.
+            </div>
+            <div class="branch-detail">
+              <span class="chip amber">Groq LLM</span>
+              <span class="chip gray">6 pesan terakhir sebagai konteks</span>
+              <span class="chip amber">respons maks 3 paragraf</span>
+            </div>
+          </div>
+
+        </div><!-- /branches -->
+      </div>
+    </div>
+
+    <div class="connector">
+      <div class="connector-line"></div>
+      <div class="connector-label">Simpan hasil</div>
+      <div class="connector-line"></div>
+      <div class="connector-arrow"></div>
+    </div>
+
+    <!-- ════════ STEP 8: Simpan Sesi ════════ -->
+    <div class="step" data-theme="green">
+      <div class="step-header">
+        <div class="step-num">8</div>
+        <div class="step-title-block">
+          <div class="step-title">Simpan Sesi ke Database</div>
+          <div class="step-subtitle">agent/memory.py · save_session() · SQLite: matcha_sessions.db</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <p class="step-desc">
+          Setelah node agent selesai, hasilnya langsung disimpan ke database SQLite supaya <strong>user tidak kehilangan progress</strong> — meskipun browser ditutup atau server restart.
+        </p>
+        <div class="info-grid">
+          <div class="info-box green">
+            <div class="info-label">💾 Data yang disimpan</div>
+            <div class="info-val">
+              <code>user_profile</code>, <code>skill_gaps</code>, <code>detected_intent</code>, <code>previous_intent_history</code>, <code>cv_text</code>, <code>linkedin_text</code>, <code>job_description</code>, <code>ats_analysis</code>, <code>learning_roadmap</code>, status upload file.
+            </div>
+          </div>
+          <div class="info-box green">
+            <div class="info-label">🔑 Cara penyimpanan</div>
+            <div class="info-val">
+              Pakai <code>INSERT ... ON CONFLICT DO UPDATE</code>. Artinya: jika <code>session_id</code> sudah ada → update, belum ada → buat baru. Tidak akan duplikat.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector">
+      <div class="connector-line"></div>
+      <div class="connector-label">Return response ke frontend</div>
+      <div class="connector-line"></div>
+      <div class="connector-arrow"></div>
+    </div>
+
+    <!-- ════════ STEP 9: Kirim ke Frontend ════════ -->
+    <div class="step" data-theme="blue">
+      <div class="step-header">
+        <div class="step-num">9</div>
+        <div class="step-title-block">
+          <div class="step-title">Kirim Jawaban ke Frontend</div>
+          <div class="step-subtitle">FastAPI Response → React · Render di layar user</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <p class="step-desc">
+          Backend mengembalikan JSON berisi <code>response</code> (teks jawaban AI) dan <code>agent_state</code> (data lengkap). React menerimanya dan langsung menampilkan hasilnya ke user.
+        </p>
+        <div class="info-grid triple">
+          <div class="info-box blue">
+            <div class="info-label">💬 Chat Response</div>
+            <div class="info-val">Teks jawaban AI muncul di kotak chat. Mendukung markdown untuk formatting yang rapi.</div>
+          </div>
+          <div class="info-box blue">
+            <div class="info-label">📊 ATS Dashboard</div>
+            <div class="info-val">Match rate gauge, daftar mastered skills, skill gaps, suggested keywords ATS dirender ke panel analisis.</div>
+          </div>
+          <div class="info-box blue">
+            <div class="info-label">🗺️ Learning Roadmap</div>
+            <div class="info-val">Fase-fase belajar dengan jadwal, kursus berbayar & gratis, durasi per phase ditampilkan sebagai timeline interaktif.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector">
+      <div class="connector-line"></div>
+      <div class="connector-arrow"></div>
+    </div>
+
+    <!-- ════════ END ════════ -->
+    <div class="terminal end">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 4h10l6 8-6 8H4V4z" fill="#1e7a35"/></svg>
+      SELESAI
+    </div>
+
+  </div><!-- /stack -->
+
+  <!-- ── LEGEND ── -->
+  <div class="legend">
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--green-light);border:1.5px solid var(--green-mid);"></div>
+      Backend / LangGraph / SQLite
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--blue-light);border:1.5px solid #bfdbfe;"></div>
+      Frontend (React)
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--purple-light);border:1.5px solid #ddd6fe;"></div>
+      LLM / IndoBERT (AI)
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--amber-light);border:1.5px solid #fcd34d;"></div>
+      ML Model / Fallback Layer
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:#1e7a35;"></div>
+      Agent Node (Dark = Conditional)
+    </div>
+  </div>
+
+  <p style="color:#ccc;font-size:10.5px;text-align:center;margin-top:16px;">
+    Matcha Career AI &nbsp;·&nbsp; LangGraph + IndoBERT + Random Forest + Groq LLM &nbsp;·&nbsp; 2026
+  </p>
+
+</body>
+</html>

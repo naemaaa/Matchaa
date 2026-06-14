@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Implementasi AI — Matcha Career Assistant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f0f4f1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 52px 32px 72px;
+    }
+
+    h1 {
+      font-size: clamp(20px, 3vw, 36px);
+      font-weight: 900; color: #111;
+      text-align: center; margin-bottom: 6px; letter-spacing: -0.5px;
+    }
+    h1 em { font-style: normal; color: #1e7a35; }
+    .subtitle { font-size: 12.5px; color: #7a9480; text-align: center; margin-bottom: 10px; }
+    .detail-link { text-align: center; margin-bottom: 36px; }
+    .detail-link a {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12px; font-weight: 700; color: #1e7a35;
+      background: #e8f5ec; border: 1.5px solid #b8ddc4;
+      padding: 6px 14px; border-radius: 20px; text-decoration: none;
+      transition: background .15s;
+    }
+    .detail-link a:hover { background: #d1edd9; }
+
+    /* ── Scrollable wrapper ── */
+    .canvas-wrap { width: 100%; max-width: 1600px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+    /* ── Main horizontal canvas ── */
+    .canvas {
+      background: #fff; border-radius: 24px;
+      padding: 44px 44px; min-width: 1540px;
+      box-shadow: 0 6px 40px rgba(30,122,53,0.08);
+      display: flex; align-items: center; gap: 0;
+    }
+
+    /* ── START / END ── */
+    .circle-btn {
+      flex-shrink: 0; width: 68px; height: 68px; border-radius: 50%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 3px; font-size: 10.5px; font-weight: 800; letter-spacing: .5px;
+    }
+    .circle-btn.start { background: #1e7a35; color: #fff; box-shadow: 0 4px 18px rgba(30,122,53,0.3); }
+    .circle-btn.end   { background: #e8f5ec; border: 2.5px solid #1e7a35; color: #1e7a35; }
+
+    /* ── Arrow ── */
+    .arr { flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 34px; }
+
+    /* ── Zone ── */
+    .zone {
+      flex-shrink: 0; border-radius: 20px;
+      padding: 28px 18px 18px; display: flex;
+      align-items: center; gap: 0; position: relative;
+    }
+    .zone.light  { background: #e8f5ec; border: 1.5px solid #b8ddc4; }
+    .zone.dark   { background: #1e7a35; border: none; }
+    .zone.gray   { background: #f8fafc; border: 1.5px solid #e2e8f0; }
+
+    .zone-label {
+      position: absolute; top: -11px; left: 16px;
+      font-size: 9.5px; font-weight: 700;
+      padding: 2px 10px; border-radius: 20px;
+      letter-spacing: .4px; white-space: nowrap;
+    }
+    .zone.light .zone-label { background: #1e7a35; color: #fff; }
+    .zone.dark  .zone-label { background: #fff; color: #1e7a35; }
+    .zone.gray  .zone-label { background: #64748b; color: #fff; }
+
+    /* ── Server badge on zone ── */
+    .zone-server {
+      position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
+      font-size: 8.5px; font-weight: 700; padding: 2px 10px;
+      border-radius: 20px; white-space: nowrap;
+    }
+    .zone.light .zone-server { background: #1e7a35; color: #fff; }
+    .zone.gray  .zone-server { background: #64748b; color: #fff; }
+
+    /* ── Card ── */
+    .card {
+      flex-shrink: 0; background: #fff;
+      border-radius: 16px; padding: 16px 14px 14px;
+      width: 150px; text-align: center; position: relative;
+      border: 1.5px solid #d0e8d8;
+      transition: box-shadow .18s, transform .18s;
+    }
+    .card:hover { box-shadow: 0 6px 20px rgba(30,122,53,0.14); transform: translateY(-2px); }
+    .card.cloud { border-color: #bfdbfe; background: #eff6ff; }
+    .card.cloud:hover { box-shadow: 0 6px 20px rgba(37,99,235,0.12); }
+
+    .card-icon {
+      width: 44px; height: 44px; border-radius: 11px;
+      background: #e8f5ec; display: flex;
+      align-items: center; justify-content: center; margin: 0 auto 10px;
+    }
+    .card.cloud .card-icon { background: #dbeafe; }
+
+    .card-title { font-size: 11px; font-weight: 700; color: #1a2e1d; margin-bottom: 4px; line-height: 1.3; }
+    .card.cloud .card-title { color: #1e3a8a; }
+    .card-desc  { font-size: 8.8px; color: #6a8a70; line-height: 1.55; }
+    .card.cloud .card-desc { color: #3b82f6; }
+
+    .badge {
+      position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+      background: #1e7a35; color: #fff;
+      font-size: 9px; font-weight: 800;
+      padding: 2px 9px; border-radius: 20px; white-space: nowrap;
+    }
+    .badge.cloud { background: #2563eb; }
+
+    /* ── Chip inside card ── */
+    .chip {
+      display: inline-flex; align-items: center; gap: 4px;
+      margin-top: 5px;
+      background: #e8f5ec; border: 1px solid #b8ddc4;
+      border-radius: 6px; padding: 2px 6px;
+      font-size: 7.5px; font-weight: 700; color: #1e7a35; white-space: nowrap;
+    }
+    .chip.gray   { background: #f3f4f6; border-color: #d1d5db; color: #6b7280; }
+    .chip.amber  { background: #fef3c7; border-color: #fcd34d; color: #b45309; }
+    .chip.blue   { background: #dbeafe; border-color: #bfdbfe; color: #2563eb; }
+    .chip-col { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+
+    /* ── Branch cards inside dark zone ── */
+    .branch-stack { display: flex; flex-direction: column; gap: 10px; align-items: stretch; flex-shrink: 0; }
+    .bcard {
+      width: 192px; background: rgba(255,255,255,0.13);
+      border: 1.5px solid rgba(255,255,255,0.28); border-radius: 14px;
+      padding: 14px 12px 12px; text-align: center;
+      position: relative; flex-shrink: 0; transition: background .18s;
+    }
+    .bcard:hover { background: rgba(255,255,255,0.22); }
+    .bcard-icon  { width: 32px; height: 32px; border-radius: 8px; background: rgba(255,255,255,0.18); display: flex; align-items: center; justify-content: center; margin: 0 auto 7px; }
+    .bcard-title { font-size: 10px; font-weight: 700; color: #fff; margin-bottom: 3px; line-height: 1.3; }
+    .bcard-desc  { font-size: 8.2px; color: rgba(255,255,255,0.72); line-height: 1.5; }
+    .bcard-badge { position: absolute; top: -9px; left: 50%; transform: translateX(-50%); background: #fff; color: #1e7a35; font-size: 7.8px; font-weight: 700; padding: 1.5px 8px; border-radius: 20px; white-space: nowrap; }
+    .bchip { display: inline-flex; align-items: center; gap: 3px; margin-top: 5px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.32); border-radius: 6px; padding: 2px 6px; font-size: 7.8px; font-weight: 700; color: rgba(255,255,255,0.9); white-space: nowrap; }
+    .bchip.amber { background: rgba(253,186,116,0.22); border-color: rgba(253,186,116,0.45); color: #fde68a; }
+
+    .parallel-note { display: inline-flex; align-items: center; gap: 4px; background: rgba(255,255,255,0.18); border-radius: 6px; padding: 2px 6px; font-size: 7.8px; font-weight: 600; color: rgba(255,255,255,0.88); margin-top: 4px; }
+
+    /* ── Output cards ── */
+    .out-card {
+      flex-shrink: 0; background: #fff; border: 1.5px solid #d0e8d8;
+      border-radius: 16px; padding: 16px 14px 14px;
+      width: 150px; text-align: center; position: relative;
+      transition: box-shadow .18s, transform .18s;
+    }
+    .out-card:hover { box-shadow: 0 6px 20px rgba(30,122,53,0.12); transform: translateY(-2px); }
+    .out-icon { width: 42px; height: 42px; border-radius: 10px; background: #e8f5ec; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; }
+    .out-title { font-size: 11px; font-weight: 700; color: #1a2e1d; margin-bottom: 4px; line-height: 1.3; }
+    .out-desc  { font-size: 8.8px; color: #7a9480; line-height: 1.5; }
+    .out-badge { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: #1e7a35; color: #fff; font-size: 9px; font-weight: 700; padding: 2px 9px; border-radius: 20px; white-space: nowrap; }
+
+    /* ── External services column ── */
+    .ext-col {
+      display: flex; flex-direction: column;
+      gap: 10px; flex-shrink: 0;
+    }
+    .ext-card {
+      width: 130px; background: #fefce8; border: 1.5px solid #fde68a;
+      border-radius: 14px; padding: 12px 12px 10px;
+      text-align: center; position: relative;
+      transition: box-shadow .18s;
+    }
+    .ext-card:hover { box-shadow: 0 4px 14px rgba(234,179,8,0.18); }
+    .ext-card.purple { background: #f5f3ff; border-color: #ddd6fe; }
+    .ext-card.purple:hover { box-shadow: 0 4px 14px rgba(124,58,237,0.15); }
+
+    .ext-icon { width: 32px; height: 32px; border-radius: 8px; background: #fef08a; display: flex; align-items: center; justify-content: center; margin: 0 auto 6px; }
+    .ext-card.purple .ext-icon { background: #ede9fe; }
+    .ext-title { font-size: 10px; font-weight: 800; color: #78350f; margin-bottom: 3px; line-height: 1.3; }
+    .ext-card.purple .ext-title { color: #5b21b6; }
+    .ext-desc  { font-size: 8px; color: #92400e; line-height: 1.5; }
+    .ext-card.purple .ext-desc { color: #7c3aed; }
+    .ext-badge { position: absolute; top: -9px; left: 50%; transform: translateX(-50%); background: #d97706; color: #fff; font-size: 8px; font-weight: 700; padding: 1.5px 8px; border-radius: 20px; white-space: nowrap; }
+    .ext-card.purple .ext-badge { background: #7c3aed; }
+
+    /* ── Vertical dotted connector to ext cards ── */
+    .ext-connector {
+      display: flex; flex-direction: column; align-items: center;
+      flex-shrink: 0; width: 28px; gap: 0; align-self: stretch;
+      justify-content: center; padding: 8px 0;
+    }
+    .ext-connector-line {
+      flex: 1; width: 1.5px;
+      background: repeating-linear-gradient(to bottom, #d97706 0px, #d97706 5px, transparent 5px, transparent 10px);
+      min-height: 20px;
+    }
+    .ext-connector-dot { width: 7px; height: 7px; border-radius: 50%; background: #d97706; flex-shrink: 0; }
+    .ext-connector.purple .ext-connector-line {
+      background: repeating-linear-gradient(to bottom, #7c3aed 0px, #7c3aed 5px, transparent 5px, transparent 10px);
+    }
+    .ext-connector.purple .ext-connector-dot { background: #7c3aed; }
+
+    /* ── ext wrapper: aligns dark zone + ext services ── */
+    .dark-and-ext {
+      display: flex; align-items: stretch; gap: 0; flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Implementasi <em>Artificial Intelligence</em></h1>
+  <p class="subtitle">Matcha Career AI &nbsp;·&nbsp; Arsitektur Production &nbsp;·&nbsp; LangGraph · IndoBERT · Random Forest ATS · Groq LLM</p>
+  <div class="detail-link">
+    <a href="ai_flow_detail.html">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1e7a35" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      Lihat Penjelasan Detail End-to-End →
+    </a>
+  </div>
+
+  <div class="canvas-wrap">
+  <div class="canvas">
+
+    <!-- ══ START ══ -->
+    <div class="circle-btn start">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><polygon points="6,3 20,12 6,21" fill="white"/></svg>
+      MULAI
+    </div>
+
+    <div class="arr"><svg width="30" height="12" viewBox="0 0 30 12"><path d="M0 6h23M17 1.5l7 4.5-7 4.5" stroke="#1e7a35" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+
+    <!-- ══════════════════════════════════════
+         ZONE A — Frontend Server (CDN/Vercel)
+    ═══════════════════════════════════════ -->
+    <div class="zone gray" style="padding: 28px 16px 22px;">
+      <div class="zone-label">Frontend Server</div>
+      <div class="zone-server">Vercel / Netlify / CDN</div>
+
+      <!-- User Browser -->
+      <div class="card cloud">
+        <div class="badge cloud">Browser</div>
+        <div class="card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+        </div>
+        <div class="card-title">User Browser</div>
+        <div class="card-desc">Buka app Matcha di browser. Aksi: chat, upload CV/LinkedIn, paste Job Description.</div>
+        <div class="chip-col">
+          <div class="chip blue">React 19 + Vite</div>
+          <div class="chip blue">https://matcha.app</div>
+        </div>
+      </div>
+
+    </div><!-- /zone gray frontend -->
+
+    <div class="arr">
+      <svg width="30" height="12" viewBox="0 0 30 12"><path d="M0 6h23M17 1.5l7 4.5-7 4.5" stroke="#1e7a35" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         ZONE B — Backend API Server
+    ═══════════════════════════════════════ -->
+    <div class="zone light" style="padding: 28px 16px 22px;">
+      <div class="zone-label">Backend API Server</div>
+      <div class="zone-server">Railway / Render / VPS — Port 8000</div>
+
+      <!-- FastAPI -->
+      <div class="card">
+        <div class="badge">01 · API</div>
+        <div class="card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1e7a35" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+        </div>
+        <div class="card-title">FastAPI Backend</div>
+        <div class="card-desc">main.py terima request, load sesi lama dari SQLite, siapkan state untuk AI graph.</div>
+        <div class="chip-col">
+          <div class="chip">POST /chat</div>
+          <div class="chip">POST /upload</div>
+          <div class="chip">POST /analyze-job</div>
+        </div>
+      </div>
+
+      <div class="arr"><svg width="26" height="11" viewBox="0 0 26 11"><path d="M0 5.5h19M13 1l7 4.5-7 4.5" stroke="#1e7a35" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+
+      <!-- Upload PDF -->
+      <div class="card">
+        <div class="badge">02 · Upload</div>
+        <div class="card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1e7a35" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="12" y1="18" x2="12" y2="12"/>
+            <line x1="9" y1="15" x2="15" y2="15"/>
+          </svg>
+        </div>
+        <div class="card-title">Upload &amp; Ekstraksi PDF</div>
+        <div class="card-desc">PyMuPDF ekstrak teks CV &amp; LinkedIn. Simpan ke disk server &amp; SQLite.</div>
+        <div class="chip-col">
+          <div class="chip">/app/uploads/ (server disk)</div>
+        </div>
+      </div>
+
+      <div class="arr"><svg width="26" height="11" viewBox="0 0 26 11"><path d="M0 5.5h19M13 1l7 4.5-7 4.5" stroke="#1e7a35" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+
+      <!-- Intent Classifier -->
+      <div class="card">
+        <div class="badge">03 · Node 1</div>
+        <div class="card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1e7a35" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+          </svg>
+        </div>
+        <div class="card-title">Intent Classifier</div>
+        <div class="card-desc">Deteksi 8 intent + drift detection. IndoBERT model di-load ke memory server.</div>
+        <div class="chip-col">
+          <div class="chip">IndoBERT (in-server)</div>
+          <div class="chip gray">Groq API (fallback)</div>
+        </div>
+      </div>
+
+      <div class="arr"><svg width="26" height="11" viewBox="0 0 26 11"><path d="M0 5.5h19M13 1l7 4.5-7 4.5" stroke="#1e7a35" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+
+      <!-- User Profiler -->
+      <div class="card">
+        <div class="badge">04 · Node 2</div>
+        <div class="card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1e7a35" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </div>
+        <div class="card-title">User Profiler</div>
+        <div class="card-desc">Build profil karir. Fast-path skip LLM jika target_role sudah tersimpan di sesi.</div>
+        <div class="chip-col">
+          <div class="chip gray">Groq API (jika perlu)</div>
+        </div>
+      </div>
+
+      <div class="arr"><svg width="26" height="11" viewBox="0 0 26 11"><path d="M0 5.5h19M13 1l7 4.5-7 4.5" stroke="#1e7a35" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+
+      <!-- Router -->
+      <div class="card">
+        <div class="badge">05 · ROUTER</div>
+        <div class="card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1e7a35" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 3 21 3 21 8"/>
+            <line x1="4" y1="20" x2="21" y2="3"/>
+            <polyline points="21 16 21 21 16 21"/>
+            <line x1="15" y1="15" x2="21" y2="21"/>
+          </svg>
+        </div>
+        <div class="card-title">Conditional Router</div>
+        <div class="card-desc">route_after_profiler() — routing ke 1 dari 4 node sesuai intent.</div>
+      </div>
+
+    </div><!-- /zone light backend -->
+
+    <div class="arr"><svg width="30" height="12" viewBox="0 0 30 12"><path d="M0 6h23M17 1.5l7 4.5-7 4.5" stroke="#1e7a35" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+
+    <!-- ══════════════════════════════════════
+         ZONE C — Agent Nodes + External APIs
+    ═══════════════════════════════════════ -->
+    <div class="dark-and-ext">
+
+      <!-- Dark zone: Agent Nodes -->
+      <div class="zone dark" style="align-items: stretch; padding: 30px 16px 18px;">
+        <div class="zone-label">Agent Nodes — Conditional Branch</div>
+
+        <div class="branch-stack">
+
+          <!-- Branch A: Skill Gap Analyzer -->
+          <div class="bcard">
+            <div class="bcard-badge">CAREER_EXPLORATION · SKILL_INQUIRY · RESOURCE_REQUEST</div>
+            <div class="bcard-icon">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+              </svg>
+            </div>
+            <div class="bcard-title">Skill Gap Analyzer <span style="opacity:.7;font-weight:500;font-size:8.5px;">Node 3</span></div>
+            <div class="bcard-desc">Analisis gap, buat roadmap &amp; ATS. Match rate di-override ML model.</div>
+            <div class="parallel-note">
+              <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              ChromaDB + Tavily — 2 threads
+            </div>
+            <div class="bchip amber">
+              <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#fde68a" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              ATS ML (env: ATS_MODEL_API_URL)
+            </div>
+          </div>
+
+          <!-- Branch B: CV Reviewer -->
+          <div class="bcard">
+            <div class="bcard-badge">CV_REVIEW</div>
+            <div class="bcard-icon">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+              </svg>
+            </div>
+            <div class="bcard-title">CV Reviewer <span style="opacity:.7;font-weight:500;font-size:8.5px;">Node 4</span></div>
+            <div class="bcard-desc">Review CV vs target karir. Generate pros, cons, suggested ATS keywords.</div>
+            <div class="bchip">Groq API (external)</div>
+          </div>
+
+          <!-- Branch C: LinkedIn Reviewer -->
+          <div class="bcard">
+            <div class="bcard-badge">LINKEDIN_REVIEW</div>
+            <div class="bcard-icon">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+              </svg>
+            </div>
+            <div class="bcard-title">LinkedIn Reviewer <span style="opacity:.7;font-weight:500;font-size:8.5px;">Node 5</span></div>
+            <div class="bcard-desc">Analisis profil LinkedIn PDF. Saran headline, about, skills.</div>
+            <div class="bchip">Groq API (external)</div>
+          </div>
+
+          <!-- Branch D: General Responder -->
+          <div class="bcard">
+            <div class="bcard-badge">PUSH_BACK · CONFIRMATION · CONSTRAINT_UPDATE</div>
+            <div class="bcard-icon">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </div>
+            <div class="bcard-title">General Responder <span style="opacity:.7;font-weight:500;font-size:8.5px;">Node 6</span></div>
+            <div class="bcard-desc">Push back, konfirmasi, update constraint + drift alert.</div>
+            <div class="bchip">Groq API (external)</div>
+          </div>
+
+        </div><!-- /branch-stack -->
+      </div><!-- /zone dark -->
+
+      <!-- Vertical dotted connector → External APIs -->
+      <div class="ext-connector">
+        <div class="ext-connector-dot"></div>
+        <div class="ext-connector-line"></div>
+        <div class="ext-connector-dot"></div>
+        <div class="ext-connector-line"></div>
+        <div class="ext-connector-dot"></div>
+        <div class="ext-connector-line"></div>
+        <div class="ext-connector-dot"></div>
+      </div>
+
+      <!-- External API cards -->
+      <div class="ext-col" style="justify-content: center;">
+
+        <div class="ext-card">
+          <div class="ext-badge">External API</div>
+          <div class="ext-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <div class="ext-title">Groq LLM API</div>
+          <div class="ext-desc">api.groq.com<br/>llama-3.3-70b → qwen3-32b → llama-3.1-8b (auto-fallback)</div>
+        </div>
+
+        <div class="ext-card">
+          <div class="ext-badge">External API</div>
+          <div class="ext-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <div class="ext-title">Tavily Search API</div>
+          <div class="ext-desc">api.tavily.com<br/>Web search real-time trend &amp; skill insight industri</div>
+        </div>
+
+        <div class="ext-card amber" style="background:#fef3c7;border-color:#fcd34d;">
+          <div class="ext-badge" style="background:#b45309;">ATS Model</div>
+          <div class="ext-icon" style="background:#fde68a;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          </div>
+          <div class="ext-title" style="color:#92400e;">ATS ML Microservice</div>
+          <div class="ext-desc" style="color:#b45309;">env: ATS_MODEL_API_URL<br/>RF Regressor · POST /predict<br/>Fallback: local import jika env tidak diset</div>
+        </div>
+
+        <div class="ext-card purple">
+          <div class="ext-badge">In-Server</div>
+          <div class="ext-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/></svg>
+          </div>
+          <div class="ext-title">ChromaDB (local)</div>
+          <div class="ext-desc">chroma_db/ di server<br/>Skills, jobs, kursus vector index. Tidak butuh API eksternal.</div>
+        </div>
+
+      </div><!-- /ext-col -->
+
+    </div><!-- /dark-and-ext -->
+
+    <div class="arr"><svg width="30" height="12" viewBox="0 0 30 12"><path d="M0 6h23M17 1.5l7 4.5-7 4.5" stroke="#1e7a35" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+
+    <!-- ══════════════════════════════════════
+         ZONE D — Persistensi & Output
+    ═══════════════════════════════════════ -->
+    <div class="zone light" style="gap: 0; padding: 28px 16px 22px;">
+      <div class="zone-label">Output &amp; Persistensi</div>
+      <div class="zone-server">Backend Server (sama)</div>
+
+      <!-- SQLite -->
+      <div class="out-card">
+        <div class="out-badge">Persistensi</div>
+        <div class="out-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1e7a35" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="12" cy="5" rx="9" ry="3"/>
+            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+          </svg>
+        </div>
+        <div class="out-title">Session SQLite</div>
+        <div class="out-desc">save_session() simpan MatchaState per session_id. Persist lintas request.</div>
+        <div class="chip-col" style="margin-top:5px;">
+          <div class="chip">matcha_sessions.db (server disk)</div>
+        </div>
+      </div>
+
+      <div class="arr"><svg width="26" height="11" viewBox="0 0 26 11"><path d="M0 5.5h19M13 1l7 4.5-7 4.5" stroke="#1e7a35" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+
+      <!-- React Response -->
+      <div class="out-card">
+        <div class="out-badge">Response</div>
+        <div class="out-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1e7a35" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+        </div>
+        <div class="out-title">JSON Response</div>
+        <div class="out-desc">Kirim <code style="font-size:8px;background:#e8f5ec;padding:1px 4px;border-radius:3px;">agent_response</code> + <code style="font-size:8px;background:#e8f5ec;padding:1px 4px;border-radius:3px;">agent_state</code> ke frontend.</div>
+      </div>
+
+    </div><!-- /zone light output -->
+
+    <div class="arr"><svg width="30" height="12" viewBox="0 0 30 12"><path d="M0 6h23M17 1.5l7 4.5-7 4.5" stroke="#1e7a35" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+
+    <!-- React render -->
+    <div class="zone gray" style="padding: 28px 16px 22px;">
+      <div class="zone-label">Frontend Server</div>
+      <div class="zone-server">Vercel / Netlify / CDN</div>
+
+      <div class="card cloud">
+        <div class="badge cloud">Render</div>
+        <div class="card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+            <line x1="8" y1="21" x2="16" y2="21"/>
+            <line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <div class="card-title">React (Vite)</div>
+        <div class="card-desc">Render chat, ATS score gauge, skill gaps list, learning roadmap ke user.</div>
+        <div class="chip-col">
+          <div class="chip blue">https://matcha.app</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arr"><svg width="30" height="12" viewBox="0 0 30 12"><path d="M0 6h23M17 1.5l7 4.5-7 4.5" stroke="#1e7a35" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+
+    <!-- ══ END ══ -->
+    <div class="circle-btn end">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 4h10l6 8-6 8H4V4z" fill="#1e7a35"/></svg>
+      END
+    </div>
+
+  </div><!-- /canvas -->
+  </div><!-- /canvas-wrap -->
+
+  <!-- ── Legend ── -->
+  <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:28px;">
+    <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:#5a7260;">
+      <div style="width:12px;height:12px;border-radius:3px;background:#e8f5ec;border:1.5px solid #b8ddc4;"></div>
+      Backend Server (Railway/Render)
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:#5a7260;">
+      <div style="width:12px;height:12px;border-radius:3px;background:#f8fafc;border:1.5px solid #e2e8f0;"></div>
+      Frontend Server (Vercel/CDN)
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:#5a7260;">
+      <div style="width:12px;height:12px;border-radius:3px;background:#1e7a35;"></div>
+      Agent Nodes (Conditional Branch)
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:#b45309;">
+      <div style="width:12px;height:12px;border-radius:3px;background:#fef3c7;border:1.5px solid #fcd34d;"></div>
+      External API / Microservice
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:#5b21b6;">
+      <div style="width:12px;height:12px;border-radius:3px;background:#f5f3ff;border:1.5px solid #ddd6fe;"></div>
+      In-Server Resource (lokal di backend)
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:#5a7260;">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1e7a35" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      Parallel Execution (ThreadPoolExecutor)
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:#6b7280;">
+      <div style="width:16px;border-top:1.5px dashed #d97706;"></div>
+      Panggil External Service
+    </div>
+  </div>
+
+  <p style="color:#ccc;font-size:10.5px;text-align:center;margin-top:14px;">
+    Matcha Career AI &nbsp;·&nbsp; Production Architecture &nbsp;·&nbsp; LangGraph + IndoBERT + Random Forest + Groq LLM &nbsp;·&nbsp; 2026
+  </p>
+
+</body>
+</html>
