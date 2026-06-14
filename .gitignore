@@ -4,3 +4,21 @@ __pycache__/
 .DS_Store
 *.pyc
 .ipynb_checkpoints
+
+# Databases
+*.sqlite3
+*.db
+chroma_db/
+
+# Uploads
+uploads/
+
+# Large Model Binaries
+agent/indobert_intent_model/*.zip
+agent/indobert_intent_model/*.safetensors
+agent/indobert_intent_model/training_args.bin
+
+# Node dependencies
+node_modules/
+dist/
+

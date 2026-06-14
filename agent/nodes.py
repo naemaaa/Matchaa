@@ -121,6 +121,57 @@ def _parse_json_response(text: str) -> Dict[str, Any]:
     return {}
 
 
+_INDOBERT_MODEL = None
+_INDOBERT_TOKENIZER = None
+_INDOBERT_LABELS = [
+    "CAREER_EXPLORATION", "SKILL_INQUIRY", "RESOURCE_REQUEST", "CONSTRAINT_UPDATE",
+    "PUSH_BACK", "CONFIRMATION", "CV_REVIEW", "LINKEDIN_REVIEW"
+]
+
+def _classify_intent_indobert(user_input: str):
+    """Attempt local IndoBERT inference for intent classification. Falls back to None if unavailable."""
+    global _INDOBERT_MODEL, _INDOBERT_TOKENIZER
+    try:
+        import torch
+        from transformers import AutoTokenizer, AutoModelForSequenceClassification
+        import torch.nn.functional as F
+        
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        model_path = os.path.join(current_dir, "indobert_intent_model")
+        
+        if not os.path.exists(model_path):
+            return None
+            
+        if _INDOBERT_MODEL is None or _INDOBERT_TOKENIZER is None:
+            print(f"Loading local IndoBERT intent classifier from {model_path}...")
+            _INDOBERT_TOKENIZER = AutoTokenizer.from_pretrained(model_path)
+            _INDOBERT_MODEL = AutoModelForSequenceClassification.from_pretrained(model_path)
+            _INDOBERT_MODEL.eval()
+            
+        inputs = _INDOBERT_TOKENIZER(
+            user_input, 
+            return_tensors="pt", 
+            truncation=True, 
+            padding="max_length", 
+            max_length=64
+        )
+        
+        with torch.no_grad():
+            outputs = _INDOBERT_MODEL(**inputs)
+            logits = outputs.logits
+            probs = F.softmax(logits, dim=-1)
+            
+        pred_idx = torch.argmax(probs, dim=-1).item()
+        confidence = probs[0, pred_idx].item()
+        intent = _INDOBERT_LABELS[pred_idx]
+        
+        print(f"IndoBERT Classified: {intent} (confidence: {confidence:.2f})")
+        return intent, confidence, {}
+    except Exception as e:
+        print(f"IndoBERT classification failed, falling back to LLM. Error: {e}")
+        return None
+
+
 # ─────────────────────────────────────────────
 # NODE 1: Intent Classifier
 # ─────────────────────────────────────────────
@@ -141,18 +192,24 @@ def intent_classifier_node(state: MatchaState) -> MatchaState:
         confidence = 1.0
         extracted_info = {}
     else:
-        prompt = INTENT_CLASSIFIER_PROMPT.format(user_input=user_input)
-        try:
-            raw = _call_llm(prompt)
-            parsed = _parse_json_response(raw)
+        # Try local IndoBERT first
+        indobert_res = _classify_intent_indobert(user_input)
+        if indobert_res is not None:
+            intent, confidence, extracted_info = indobert_res
+        else:
+            # Fallback to LLM
+            prompt = INTENT_CLASSIFIER_PROMPT.format(user_input=user_input)
+            try:
+                raw = _call_llm(prompt)
+                parsed = _parse_json_response(raw)
 
-            intent = parsed.get("intent", "CAREER_EXPLORATION").upper()
-            confidence = float(parsed.get("confidence", 0.7))
-            extracted_info = parsed.get("extracted_info", {})
-        except Exception:
-            intent = "CAREER_EXPLORATION"
-            confidence = 0.5
-            extracted_info = {}
+                intent = parsed.get("intent", "CAREER_EXPLORATION").upper()
+                confidence = float(parsed.get("confidence", 0.7))
+                extracted_info = parsed.get("extracted_info", {})
+            except Exception:
+                intent = "CAREER_EXPLORATION"
+                confidence = 0.5
+                extracted_info = {}
 
     # ── Drift Detection ──
     history = state.get("previous_intent_history")
@@ -381,6 +438,43 @@ def skill_gap_analyzer_node(state: MatchaState) -> MatchaState:
         ats_analysis = {"cv_pros": [], "cv_cons": [], "suggested_keywords": []}
         learning_roadmap = {"total_weeks": 12, "start_date": "Juni 2026", "end_date": "September 2026", "phases": []}
         updated_profile = user_profile
+
+    # Calculate ATS match rate using custom model and overwrite the value before updating the state
+    cv_or_linkedin = cv_text_raw if cv_text_raw else linkedin_text_raw
+    custom_match_rate = None
+    
+    # Try calling the FastAPI model serving microservice first
+    try:
+        import os
+        import requests
+        api_url = os.environ.get("ATS_MODEL_API_URL", "http://localhost:8080").rstrip("/")
+        payload = {
+            "cv_text": cv_or_linkedin,
+            "job_description": job_desc_raw,
+            "target_role": target_role
+        }
+        api_res = requests.post(f"{api_url}/predict", json=payload, timeout=2)
+        if api_res.status_code == 200:
+            custom_match_rate = api_res.json().get("match_rate")
+            print(f"DEBUG Custom ATS Model Match Rate (API Server): {custom_match_rate}%")
+    except Exception as api_err:
+        print(f"FastAPI model server offline (http://localhost:8080), falling back to local file: {api_err}")
+        
+    # Fallback to local import if API server is offline
+    if custom_match_rate is None:
+        try:
+            from ats_model_app.model import predict_ats_match_rate
+            custom_match_rate = predict_ats_match_rate(
+                cv_text=cv_or_linkedin,
+                job_description=job_desc_raw,
+                target_role=target_role
+            )
+            print(f"DEBUG Custom ATS Model Match Rate (Local Fallback): {custom_match_rate}%")
+        except Exception as model_err:
+            print("ERROR calculating custom ATS model match rate prediction locally:", model_err)
+
+    if custom_match_rate is not None:
+        match_rate = custom_match_rate
 
     return {
         **state,

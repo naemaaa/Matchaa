@@ -1,0 +1,769 @@
+text,label
+"Aku ingin tahu karir yang cocok buat aku nih, bisa bantu?",CAREER_EXPLORATION
+Karir apa yang paling prospek di tahun ini?,CAREER_EXPLORATION
+"Gw bingung mau pilih karir apa, ada rekomendasi?",CAREER_EXPLORATION
+"Aku mau ganti pekerjaan, tapi bingung mau pindah ke bidang apa",CAREER_EXPLORATION
+Apa karir yang paling sesuai dengan minatku?,CAREER_EXPLORATION
+Gimana cara mengetahui karir yang tepat untukku?,CAREER_EXPLORATION
+"Aku ingin eksplorasi karir di bidang teknologi, ada saran?",CAREER_EXPLORATION
+Lu tahu karir apa yang paling dibutuhkan di dunia kerja sekarang?,CAREER_EXPLORATION
+"Aku bosan dengan pekerjaan sekarang, butuh rekomendasi karir baru",CAREER_EXPLORATION
+Apa yang perlu aku lakukan untuk mengembangkan karirku?,CAREER_EXPLORATION
+Gw ingin tahu tentang prospek karir di bidang kesehatan,CAREER_EXPLORATION
+Aku ingin mencari pekerjaan yang sesuai dengan passionku,CAREER_EXPLORATION
+Karir apa yang paling menguntungkan di Indonesia saat ini?,CAREER_EXPLORATION
+Aku butuh bantuan untuk menemukan karir yang cocok,CAREER_EXPLORATION
+Gimana cara mengembangkan karir dengan cepat?,CAREER_EXPLORATION
+Aku ingin tahu tentang karir di bidang seni,CAREER_EXPLORATION
+Apa yang harus aku lakukan untuk sukses di karirku?,CAREER_EXPLORATION
+Gw ingin mencari karir yang memiliki prospek bagus,CAREER_EXPLORATION
+Aku ingin tahu tentang karir di bidang pendidikan,CAREER_EXPLORATION
+Apa karir yang paling sesuai dengan kemampuanku?,CAREER_EXPLORATION
+Gw ingin mengembangkan karir di bidang bisnis,CAREER_EXPLORATION
+Aku ingin tahu tentang karir di bidang teknologi informasi,CAREER_EXPLORATION
+Apa yang harus aku lakukan untuk meningkatkan karirku?,CAREER_EXPLORATION
+Gw ingin mencari karir yang memiliki keamanan finansial,CAREER_EXPLORATION
+Aku ingin tahu tentang karir di bidang pariwisata,CAREER_EXPLORATION
+Apa karir yang paling sesuai dengan kepribadianku?,CAREER_EXPLORATION
+Gw ingin mengembangkan karir di bidang kreatif,CAREER_EXPLORATION
+Aku ingin tahu tentang karir di bidang lingkungan,CAREER_EXPLORATION
+Apa yang perlu aku lakukan untuk mencapai tujuan karirku?,CAREER_EXPLORATION
+Gw ingin mencari karir yang memiliki kesempatan untuk berkembang,CAREER_EXPLORATION
+Aku ingin tahu tentang karir di bidang sains,CAREER_EXPLORATION
+Apa karir yang paling sesuai dengan minat dan kemampuanku?,CAREER_EXPLORATION
+Aku bingung mau pilih karir apa nih,CAREER_EXPLORATION
+Gimana cara aku tahu karir yang cocok buat aku,CAREER_EXPLORATION
+Aku ingin tahu tentang karir di bidang IT,CAREER_EXPLORATION
+Karir apa yang paling prospek di masa depan,CAREER_EXPLORATION
+"Aku ingin berkarir di bidang kesehatan, apa yang harus aku lakukan",CAREER_EXPLORATION
+Bagaimana cara aku mengetahui karir yang sesuai dengan minat aku,CAREER_EXPLORATION
+Aku ingin tahu tentang gaji dan tunjangan untuk beberapa karir,CAREER_EXPLORATION
+Aku bingung mau ambil jurusan apa di kuliah nanti,CAREER_EXPLORATION
+"Aku ingin berkarir di perusahaan besar, apa yang harus aku lakukan",CAREER_EXPLORATION
+Karir apa yang paling dibutuhkan di dunia kerja saat ini,CAREER_EXPLORATION
+Aku ingin tahu tentang cara mengembangkan karir aku,CAREER_EXPLORATION
+Aku ingin mencari karir yang sesuai dengan passion aku,CAREER_EXPLORATION
+Aku ingin tahu tentang beberapa karir yang mempunyai fleksibilitas waktu,CAREER_EXPLORATION
+"Aku ingin berkarir di bidang seni, apa yang harus aku lakukan",CAREER_EXPLORATION
+Aku ingin tahu tentang beberapa karir yang mempunyai kesempatan untuk bepergian,CAREER_EXPLORATION
+Aku ingin mencari karir yang mempunyai kesempatan untuk berkembang,CAREER_EXPLORATION
+Aku ingin tahu tentang beberapa karir yang mempunyai tingkat stres yang rendah,CAREER_EXPLORATION
+"Aku ingin berkarir di bidang olahraga, apa yang harus aku lakukan",CAREER_EXPLORATION
+Aku ingin tahu tentang beberapa karir yang mempunyai jam kerja yang fleksibel,CAREER_EXPLORATION
+Aku ingin mencari karir yang sesuai dengan nilai aku,CAREER_EXPLORATION
+Aku ingin tahu tentang beberapa karir yang mempunyai kesempatan untuk berinteraksi dengan orang banyak,CAREER_EXPLORATION
+"Aku ingin berkarir di bidang pendidikan, apa yang harus aku lakukan",CAREER_EXPLORATION
+Aku ingin tahu tentang beberapa karir yang mempunyai tingkat keamanan yang tinggi,CAREER_EXPLORATION
+Aku ingin mencari karir yang mempunyai kesempatan untuk mengembangkan kreativitas,CAREER_EXPLORATION
+Aku ingin tahu tentang beberapa karir yang mempunyai kesempatan untuk bekerja secara remote,CAREER_EXPLORATION
+"Aku ingin berkarir di bidang teknologi, apa yang harus aku lakukan",CAREER_EXPLORATION
+Aku ingin tahu tentang beberapa karir yang mempunyai kesempatan untuk mengembangkan kemampuan lider,CAREER_EXPLORATION
+Aku ingin mencari karir yang sesuai dengan gaya hidup aku,CAREER_EXPLORATION
+Aku ingin tahu tentang beberapa karir yang mempunyai kesempatan untuk mengembangkan kemampuan analitis,CAREER_EXPLORATION
+"Aku ingin berkarir di bidang bisnis, apa yang harus aku lakukan",CAREER_EXPLORATION
+Aku ingin tahu tentang beberapa karir yang mempunyai kesempatan untuk mengembangkan kemampuan komunikasi,CAREER_EXPLORATION
+Aku ingin mencari karir yang mempunyai kesempatan untuk mengembangkan kemampuan problem solving,CAREER_EXPLORATION
+C,CAREER_EXPLORATION
+A,CAREER_EXPLORATION
+R,CAREER_EXPLORATION
+E,CAREER_EXPLORATION
+E,CAREER_EXPLORATION
+R,CAREER_EXPLORATION
+_,CAREER_EXPLORATION
+E,CAREER_EXPLORATION
+X,CAREER_EXPLORATION
+P,CAREER_EXPLORATION
+L,CAREER_EXPLORATION
+O,CAREER_EXPLORATION
+R,CAREER_EXPLORATION
+A,CAREER_EXPLORATION
+T,CAREER_EXPLORATION
+I,CAREER_EXPLORATION
+O,CAREER_EXPLORATION
+N,CAREER_EXPLORATION
+Apa sih keahlian yang dibutuhkan untuk jadi data scientist?,SKILL_INQUIRY
+"Gw pengen jadi developer, apakah harus bisa bahasa pemrograman apa saja?",SKILL_INQUIRY
+"Lu tahu nggak, skill apa aja yang harus dimiliki buat menjadi seorang product manager?",SKILL_INQUIRY
+"Nih, aku ingin tahu, keahlian apa yang paling dibutuhkan untuk menjadi seorang UX designer?",SKILL_INQUIRY
+"Makasih, aku ingin bertanya, apa saja kompetensi yang harus dimiliki untuk menjadi seorang digital marketing specialist?",SKILL_INQUIRY
+"Aku penasaran, apa skill yang dibutuhkan untuk menjadi seorang data analyst?",SKILL_INQUIRY
+"Gw mau jadi software engineer, apakah harus memiliki keahlian khusus?",SKILL_INQUIRY
+"Lu tahu nggak, apa saja keahlian yang dibutuhkan untuk menjadi seorang IT project manager?",SKILL_INQUIRY
+"Nih, aku ingin tahu, keahlian apa yang paling dibutuhkan untuk menjadi seorang cybersecurity specialist?",SKILL_INQUIRY
+"Makasih, aku ingin bertanya, apa saja kompetensi yang harus dimiliki untuk menjadi seorang artificial intelligence engineer?",SKILL_INQUIRY
+"Aku ingin jadi front-end developer, apakah harus menguasai framework apa saja?",SKILL_INQUIRY
+"Gw pengen jadi back-end developer, apakah harus bisa menggunakan bahasa pemrograman apa saja?",SKILL_INQUIRY
+"Lu tahu nggak, skill apa aja yang harus dimiliki buat menjadi seorang full-stack developer?",SKILL_INQUIRY
+"Nih, aku ingin tahu, keahlian apa yang paling dibutuhkan untuk menjadi seorang devops engineer?",SKILL_INQUIRY
+"Makasih, aku ingin bertanya, apa saja kompetensi yang harus dimiliki untuk menjadi seorang cloud computing specialist?",SKILL_INQUIRY
+"Aku penasaran, apa skill yang dibutuhkan untuk menjadi seorang database administrator?",SKILL_INQUIRY
+"Gw mau jadi network administrator, apakah harus memiliki keahlian khusus?",SKILL_INQUIRY
+"Lu tahu nggak, apa saja keahlian yang dibutuhkan untuk menjadi seorang help desk technician?",SKILL_INQUIRY
+"Nih, aku ingin tahu, keahlian apa yang paling dibutuhkan untuk menjadi seorang technical support specialist?",SKILL_INQUIRY
+"Makasih, aku ingin bertanya, apa saja kompetensi yang harus dimiliki untuk menjadi seorang technical writer?",SKILL_INQUIRY
+"Aku ingin jadi instructional designer, apakah harus menguasai tool apa saja?",SKILL_INQUIRY
+"Gw pengen jadi e-learning developer, apakah harus bisa menggunakan teknologi apa saja?",SKILL_INQUIRY
+"Lu tahu nggak, skill apa aja yang harus dimiliki buat menjadi seorang learning management system administrator?",SKILL_INQUIRY
+"Nih, aku ingin tahu, keahlian apa yang paling dibutuhkan untuk menjadi seorang training manager?",SKILL_INQUIRY
+"Makasih, aku ingin bertanya, apa saja kompetensi yang harus dimiliki untuk menjadi seorang human resources generalist?",SKILL_INQUIRY
+"Aku penasaran, apa skill yang dibutuhkan untuk menjadi seorang recruitment specialist?",SKILL_INQUIRY
+"Gw mau jadi talent acquisition manager, apakah harus memiliki keahlian khusus?",SKILL_INQUIRY
+"Lu tahu nggak, apa saja keahlian yang dibutuhkan untuk menjadi seorang compensation and benefits manager?",SKILL_INQUIRY
+"Nih, aku ingin tahu, keahlian apa yang paling dibutuhkan untuk menjadi seorang HR business partner?",SKILL_INQUIRY
+"Makasih, aku ingin bertanya, apa saja kompetensi yang harus dimiliki untuk menjadi seorang organizational development specialist?",SKILL_INQUIRY
+"Aku ingin jadi management consultant, apakah harus menguasai metode apa saja?",SKILL_INQUIRY
+"Gw pengen jadi strategy consultant, apakah harus bisa menganalisis data apa saja?",SKILL_INQUIRY
+"Lu tahu nggak, skill apa aja yang harus dimiliki buat menjadi seorang operations manager?",SKILL_INQUIRY
+"Nih, aku ingin tahu, keahlian apa yang paling dibutuhkan untuk menjadi seorang supply chain manager?",SKILL_INQUIRY
+"Makasih, aku ingin bertanya, apa saja kompetensi yang harus dimiliki untuk menjadi seorang logistics manager?",SKILL_INQUIRY
+Apa skill wajib untuk menjadi seorang data scientist?,SKILL_INQUIRY
+"Gw ingin jadi backend developer, apa aja sih kemampuan yang harus gw kuasai?",SKILL_INQUIRY
+Kompetensi apa aja yang dibutuhin buat jadi product manager?,SKILL_INQUIRY
+"Aku pengen jadi UX designer, apa aja skill yang harus aku pelajari?",SKILL_INQUIRY
+"Lu tahu nggak, skill apa yang paling dibutuhin buat jadi digital marketing specialist?",SKILL_INQUIRY
+"Nih, gw pengen tahu, apa keahlian yang harus dimiliki seorang cybersecurity engineer?",SKILL_INQUIRY
+"Makasih, aku mau tanya, apa aja kemampuan yang dibutuhkan buat jadi DevOps engineer?",SKILL_INQUIRY
+"Gw penasaran, apa skill yang paling penting buat jadi machine learning engineer?",SKILL_INQUIRY
+Apa aja sih skill yang harus aku kuasai buat jadi software engineer?,SKILL_INQUIRY
+"Aku ingin jadi network administrator, apa aja kompetensi yang harus aku miliki?",SKILL_INQUIRY
+"Lu tahu nggak, apa keahlian yang dibutuhkan buat jadi database administrator?",SKILL_INQUIRY
+"Gw ingin tahu, apa aja skill yang harus dimiliki seorang web developer?",SKILL_INQUIRY
+"Aku pengen jadi IT project manager, apa aja kemampuan yang harus aku kuasai?",SKILL_INQUIRY
+"Nih, gw penasaran, apa aja kompetensi yang dibutuhkan buat jadi cloud computing engineer?",SKILL_INQUIRY
+"Makasih, aku mau tanya, apa aja keahlian yang dibutuhkan buat jadi artificial intelligence engineer?",SKILL_INQUIRY
+"Gw ingin jadi data analyst, apa aja skill yang harus gw kuasai?",SKILL_INQUIRY
+"Aku pengen tahu, apa aja kemampuan yang dibutuhkan buat jadi business intelligence developer?",SKILL_INQUIRY
+"Lu tahu nggak, apa aja kompetensi yang dibutuhkan buat jadi mobile app developer?",SKILL_INQUIRY
+"Gw penasaran, apa skill yang paling penting buat jadi full stack developer?",SKILL_INQUIRY
+"Aku ingin jadi QA engineer, apa aja keahlian yang harus aku miliki?",SKILL_INQUIRY
+"Nih, gw ingin tahu, apa aja kemampuan yang dibutuhkan buat jadi technical writer?",SKILL_INQUIRY
+"Makasih, aku mau tanya, apa aja skill yang dibutuhkan buat jadi IT consultant?",SKILL_INQUIRY
+"Gw pengen jadi solutions architect, apa aja kompetensi yang harus aku kuasai?",SKILL_INQUIRY
+"Aku penasaran, apa aja keahlian yang dibutuhkan buat jadi system administrator?",SKILL_INQUIRY
+"Lu tahu nggak, apa aja kemampuan yang dibutuhkan buat jadi technical support specialist?",SKILL_INQUIRY
+"Gw ingin tahu, apa aja skill yang harus dimiliki seorang automation engineer?",SKILL_INQUIRY
+"Aku pengen jadi penetration tester, apa aja kompetensi yang harus aku miliki?",SKILL_INQUIRY
+"Nih, gw penasaran, apa aja keahlian yang dibutuhkan buat jadi chief information security officer?",SKILL_INQUIRY
+"Makasih, aku mau tanya, apa aja kemampuan yang dibutuhkan buat jadi chief technology officer?",SKILL_INQUIRY
+Apa aja sih skill yang dibutuhkan buat jadi data scientist?,SKILL_INQUIRY
+Gimana cara buat meningkatkan kemampuan di bidang marketing?,SKILL_INQUIRY
+"Aku ingin jadi pengembang aplikasi, apa aja keahlian yang harus aku pelajari?",SKILL_INQUIRY
+"Lu tahu nggak, kira-kira apa aja kompetensi yang dibutuhkan buat menjadi seorang manajer proyek?",SKILL_INQUIRY
+"Buat jadi desainer grafis, aku harus punya skill apa aja nih?",SKILL_INQUIRY
+Apa yang membuat seseorang sukses di bidang penjualan?,SKILL_INQUIRY
+Kira-kira apa aja keahlian yang dibutuhkan buat jadi konsultan keuangan?,SKILL_INQUIRY
+Gimana cara mengembangkan kemampuan komunikasi yang efektif di tempat kerja?,SKILL_INQUIRY
+"Aku ingin tahu, apa aja skill yang dibutuhkan buat menjadi seorang analis keuangan?",SKILL_INQUIRY
+"Untuk menjadi seorang insinyur, apa aja kompetensi yang harus dimiliki?",SKILL_INQUIRY
+"Buat jadi enterpreneur, apa aja keahlian yang harus aku miliki?",SKILL_INQUIRY
+"Aku ingin tahu, apa aja kemampuan yang dibutuhkan buat menjadi seorang pemimpin tim?",SKILL_INQUIRY
+Gimana cara buat meningkatkan kemampuan di bidang teknologi informasi?,SKILL_INQUIRY
+"Aku ingin jadi penulis konten, apa aja skill yang harus aku kuasai?",SKILL_INQUIRY
+"Lu tahu nggak, kira-kira apa aja kompetensi yang dibutuhkan buat menjadi seorang HRD?",SKILL_INQUIRY
+"Buat jadi fotografer, aku harus punya skill apa aja nih?",SKILL_INQUIRY
+Apa yang membuat seseorang sukses di bidang kreatif?,SKILL_INQUIRY
+Kira-kira apa aja keahlian yang dibutuhkan buat jadi konsultan manajemen?,SKILL_INQUIRY
+Gimana cara mengembangkan kemampuan analisis data yang baik?,SKILL_INQUIRY
+"Aku ingin tahu, apa aja skill yang dibutuhkan buat menjadi seorang ahli pemasaran digital?",SKILL_INQUIRY
+"Untuk menjadi seorang peneliti, apa aja kompetensi yang harus dimiliki?",SKILL_INQUIRY
+"Buat jadi pembicara publik, apa aja keahlian yang harus aku miliki?",SKILL_INQUIRY
+"Aku ingin tahu, apa aja kemampuan yang dibutuhkan buat menjadi seorang pengembang bisnis?",SKILL_INQUIRY
+Gimana cara buat meningkatkan kemampuan di bidang logistik?,SKILL_INQUIRY
+"Aku ingin jadi ilustrator, apa aja skill yang harus aku kuasai?",SKILL_INQUIRY
+"Lu tahu nggak, kira-kira apa aja kompetensi yang dibutuhkan buat menjadi seorang manajer operasional?",SKILL_INQUIRY
+"Buat jadi editor video, aku harus punya skill apa aja nih?",SKILL_INQUIRY
+Apa yang membuat seseorang sukses di bidang jurnalisme?,SKILL_INQUIRY
+Kira-kira apa aja keahlian yang dibutuhkan buat jadi konsultan sumber daya manusia?,SKILL_INQUIRY
+Gimana cara mengembangkan kemampuan pemecahan masalah yang efektif?,SKILL_INQUIRY
+"Aku ingin tahu, apa aja skill yang dibutuhkan buat menjadi seorang spesialis keamanan siber?",SKILL_INQUIRY
+"Untuk menjadi seorang arsitek, apa aja kompetensi yang harus dimiliki?",SKILL_INQUIRY
+"Buat jadi desainer interior, apa aja keahlian yang harus aku miliki?",SKILL_INQUIRY
+Aku butuh rekomendasi kursus online untuk belajar pemrograman web,RESOURCE_REQUEST
+Gimana caranya aku bisa dapat rekomendasi modul belajar desain grafis?,RESOURCE_REQUEST
+"Nih, aku lagi cari playlist YouTube tentang pengembangan diri, ada rekomendasi ga?",RESOURCE_REQUEST
+"Aku ingin belajar bahasa Inggris, apa ada rekomendasi kursus online yang bagus?",RESOURCE_REQUEST
+Lu tahu ga ada bahan belajar apa yang cocok untuk persiapan CPNS?,RESOURCE_REQUEST
+"Makasih, aku butuh rekomendasi buku tentang manajemen waktu",RESOURCE_REQUEST
+"Aku cari rekomendasi kursus online tentang digital marketing, ada yang tahu?",RESOURCE_REQUEST
+Gw butuh rekomendasi modul belajar untuk meningkatkan kemampuan public speaking,RESOURCE_REQUEST
+Aku ingin tahu rekomendasi playlist podcast tentang entrepreneurship,RESOURCE_REQUEST
+Ada rekomendasi kursus online yang bagus untuk belajar analisis data ga?,RESOURCE_REQUEST
+"Aku butuh bahan belajar tentang cybersecurity, apa yang kamu rekomendasikan?",RESOURCE_REQUEST
+Gimana caranya aku bisa mendapatkan rekomendasi modul belajar tentang kewirausahaan?,RESOURCE_REQUEST
+"Aku ingin belajar tentang artificial intelligence, ada rekomendasi kursus online yang bagus?",RESOURCE_REQUEST
+"Nih, aku cari rekomendasi eBook tentang pengembangan diri, ada ga?",RESOURCE_REQUEST
+Lu tahu ga ada rekomendasi kursus online tentang manajemen proyek?,RESOURCE_REQUEST
+"Makasih, aku butuh rekomendasi kursus online tentang desain interior",RESOURCE_REQUEST
+"Aku cari rekomendasi modul belajar tentang fotografi, ada yang tahu?",RESOURCE_REQUEST
+Gw butuh rekomendasi kursus online tentang bisnis online,RESOURCE_REQUEST
+Aku ingin tahu rekomendasi playlist YouTube tentang kesehatan mental,RESOURCE_REQUEST
+Ada rekomendasi buku yang bagus untuk belajar tentang psikologi?,RESOURCE_REQUEST
+Aku butuh rekomendasi kursus online tentang belajar bahasa Jepang,RESOURCE_REQUEST
+Gimana caranya aku bisa mendapatkan rekomendasi modul belajar tentang akuntansi?,RESOURCE_REQUEST
+"Aku ingin belajar tentang ilmu data, ada rekomendasi kursus online yang bagus?",RESOURCE_REQUEST
+"Nih, aku cari rekomendasi podcast tentang teknologi, ada ga?",RESOURCE_REQUEST
+Lu tahu ga ada rekomendasi kursus online tentang belajar bahasa Mandarin?,RESOURCE_REQUEST
+"Makasih, aku butuh rekomendasi eBook tentang motivasi",RESOURCE_REQUEST
+"Aku cari rekomendasi modul belajar tentang belajar bahasa Korea, ada yang tahu?",RESOURCE_REQUEST
+Gw butuh rekomendasi kursus online tentang belajar bahasa Spanyol,RESOURCE_REQUEST
+Aku ingin tahu rekomendasi playlist YouTube tentang belajar piano,RESOURCE_REQUEST
+Ada rekomendasi kursus online yang bagus untuk belajar tentang belajar bahasa Perancis?,RESOURCE_REQUEST
+Aku butuh rekomendasi buku tentang belajar bahasa Jerman,RESOURCE_REQUEST
+Gimana caranya aku bisa mendapatkan rekomendasi modul belajar tentang belajar bahasa Italia?,RESOURCE_REQUEST
+"Aku ingin belajar tentang belajar bahasa Rusia, ada rekomendasi kursus online yang bagus?",RESOURCE_REQUEST
+"Aku butuh rekomendasi kursus online untuk meningkatkan kemampuan bahasa Inggris, apa ada saran?",RESOURCE_REQUEST
+"Nih, gw cari modul belajar desain grafis yang bagus, bisa kasih referensi?",RESOURCE_REQUEST
+"Mau tanya, ada gak playlist YouTube yang bagus untuk belajar programming?",RESOURCE_REQUEST
+"Butuh bantuan, cari kursus online yang bagus untuk belajar digital marketing",RESOURCE_REQUEST
+"Kak, aku mau belajar Public Speaking, ada rekomendasi kursus yang bagus gak?",RESOURCE_REQUEST
+Gimana caranya agar aku bisa mendapatkan rekomendasi modul belajar yang tepat?,RESOURCE_REQUEST
+Apa ada rekomendasi bahan belajar untuk mempersiapkan diri menghadapi psikotes?,RESOURCE_REQUEST
+"Mau tanya, ada gak kursus online yang bagus untuk belajar data science?",RESOURCE_REQUEST
+Butuh rekomendasi playlist YouTube yang bagus untuk belajar bahasa Jepang,RESOURCE_REQUEST
+"Kak, gw ingin belajar mengenai artificial intelligence, ada rekomendasi modul belajar yang bagus?",RESOURCE_REQUEST
+Gimana caranya agar aku bisa mendapatkan rekomendasi kursus online yang sesuai dengan kebutuhan aku?,RESOURCE_REQUEST
+Apa ada rekomendasi bahan belajar untuk mempersiapkan diri menghadapi wawancara kerja?,RESOURCE_REQUEST
+"Mau tanya, ada gak rekomendasi modul belajar yang bagus untuk belajar cybersecurity?",RESOURCE_REQUEST
+Butuh rekomendasi kursus online yang bagus untuk belajar pengembangan web,RESOURCE_REQUEST
+"Kak, aku mau belajar mengenai manajemen proyek, ada rekomendasi modul belajar yang bagus?",RESOURCE_REQUEST
+Gimana caranya agar aku bisa mendapatkan rekomendasi kursus online yang sesuai dengan minat aku?,RESOURCE_REQUEST
+Apa ada rekomendasi bahan belajar untuk mempersiapkan diri menghadapi tes TOEFL?,RESOURCE_REQUEST
+"Mau tanya, ada gak rekomendasi modul belajar yang bagus untuk belajar mengenai keuangan?",RESOURCE_REQUEST
+Butuh rekomendasi playlist YouTube yang bagus untuk belajar mengenai bisnis,RESOURCE_REQUEST
+"Kak, gw ingin belajar mengenai kewirausahaan, ada rekomendasi modul belajar yang bagus?",RESOURCE_REQUEST
+Gimana caranya agar aku bisa mendapatkan rekomendasi kursus online yang sesuai dengan tujuan aku?,RESOURCE_REQUEST
+Apa ada rekomendasi bahan belajar untuk mempersiapkan diri menghadapi tes IELTS?,RESOURCE_REQUEST
+"Mau tanya, ada gak rekomendasi modul belajar yang bagus untuk belajar mengenai pemasaran digital?",RESOURCE_REQUEST
+Butuh rekomendasi kursus online yang bagus untuk belajar mengenai manajemen sumber daya manusia,RESOURCE_REQUEST
+"Kak, aku mau belajar mengenai pengembangan diri, ada rekomendasi modul belajar yang bagus?",RESOURCE_REQUEST
+Gimana caranya agar aku bisa mendapatkan rekomendasi kursus online yang sesuai dengan gaya belajar aku?,RESOURCE_REQUEST
+Apa ada rekomendasi bahan belajar untuk mempersiapkan diri menghadapi tes GMAT?,RESOURCE_REQUEST
+"Mau tanya, ada gak rekomendasi modul belajar yang bagus untuk belajar mengenai statistik?",RESOURCE_REQUEST
+Butuh rekomendasi playlist YouTube yang bagus untuk belajar mengenai ilmu komputer,RESOURCE_REQUEST
+"Kak, gw ingin belajar mengenai machine learning, ada rekomendasi modul belajar yang bagus?",RESOURCE_REQUEST
+Gimana caranya agar aku bisa mendapatkan rekomendasi kursus online yang sesuai dengan kebutuhan kerja aku?,RESOURCE_REQUEST
+Apa ada rekomendasi bahan belajar untuk mempersiapkan diri menghadapi tes GRE?,RESOURCE_REQUEST
+"Mau tanya, ada gak rekomendasi modul belajar yang bagus untuk belajar mengenai networking?",RESOURCE_REQUEST
+Aku butuh rekomendasi kursus online untuk pengembangan karir,RESOURCE_REQUEST
+Gimana cara mendapatkan modul belajar yang bagus untuk meningkatkan kemampuan?,RESOURCE_REQUEST
+"Nih, aku ingin tahu ada kursus apa aja yang bisa bantu aku meningkatkan kemampuan bahasa Inggris",RESOURCE_REQUEST
+"Mau tanya, ada resource belajar apa aja yang bisa bantu aku jadi lebih pintar?",RESOURCE_REQUEST
+Lu tahu ada playlist YouTube yang bagus untuk belajar desain grafis ga?,RESOURCE_REQUEST
+"Makasih, aku butuh saran buat kursus online yang pas buat aku",RESOURCE_REQUEST
+"Aku cari-cari modul belajar yang bagus buat aku, bisa bantu aku ga?",RESOURCE_REQUEST
+Gw pengen tahu ada bahan belajar apa aja yang bisa bantu gw meningkatkan kemampuan coding,RESOURCE_REQUEST
+"Aku ingin belajar tentang digital marketing, ada rekomendasi kursus online yang bagus ga?",RESOURCE_REQUEST
+Aku butuh rekomendasi buku yang bagus untuk belajar tentang kepemimpinan,RESOURCE_REQUEST
+"Mau tanya, ada kursus online yang bagus untuk belajar tentang data science?",RESOURCE_REQUEST
+"Aku cari-cari resource belajar yang bagus untuk aku, bisa kasih saran ga?",RESOURCE_REQUEST
+Lu tahu ada modul belajar yang bagus untuk aku belajar tentang manajemen waktu?,RESOURCE_REQUEST
+Aku ingin tahu ada rekomendasi apa aja yang bisa bantu aku meningkatkan kemampuan public speaking,RESOURCE_REQUEST
+Gw butuh bahan belajar yang bagus untuk aku belajar tentang keuangan pribadi,RESOURCE_REQUEST
+"Aku cari-cari kursus online yang bagus untuk aku, bisa bantu aku ga?",RESOURCE_REQUEST
+"Mau tanya, ada playlist YouTube yang bagus untuk belajar tentang fotografi?",RESOURCE_REQUEST
+"Aku ingin belajar tentang entrepreneurship, ada rekomendasi kursus online yang bagus ga?",RESOURCE_REQUEST
+Aku butuh rekomendasi modul belajar yang bagus untuk aku belajar tentang marketing,RESOURCE_REQUEST
+Gw pengen tahu ada bahan belajar apa aja yang bisa bantu gw meningkatkan kemampuan menulis,RESOURCE_REQUEST
+"Aku cari-cari resource belajar yang bagus untuk aku, bisa kasih saran ga?",RESOURCE_REQUEST
+Lu tahu ada kursus online yang bagus untuk belajar tentang desain interior?,RESOURCE_REQUEST
+Aku ingin tahu ada rekomendasi apa aja yang bisa bantu aku meningkatkan kemampuan berbicara di depan umum,RESOURCE_REQUEST
+Aku butuh rekomendasi buku yang bagus untuk belajar tentang psikologi,RESOURCE_REQUEST
+"Mau tanya, ada modul belajar yang bagus untuk aku belajar tentang manajemen proyek?",RESOURCE_REQUEST
+Gw butuh bahan belajar yang bagus untuk aku belajar tentang ilmu komputer,RESOURCE_REQUEST
+"Aku cari-cari kursus online yang bagus untuk aku, bisa bantu aku ga?",RESOURCE_REQUEST
+"Aku ingin belajar tentang bisnis, ada rekomendasi kursus online yang bagus ga?",RESOURCE_REQUEST
+Aku butuh rekomendasi modul belajar yang bagus untuk aku belajar tentang akuntansi,RESOURCE_REQUEST
+Lu tahu ada playlist YouTube yang bagus untuk belajar tentang seni?,RESOURCE_REQUEST
+Aku ingin tahu ada rekomendasi apa aja yang bisa bantu aku meningkatkan kemampuan berpikir kritis,RESOURCE_REQUEST
+Gw pengen tahu ada bahan belajar apa aja yang bisa bantu gw meningkatkan kemampuan memimpin tim,RESOURCE_REQUEST
+"Aku cari-cari resource belajar yang bagus untuk aku, bisa kasih saran ga?",RESOURCE_REQUEST
+"Mau tanya, ada kursus online yang bagus untuk belajar tentang teknologi informasi?",RESOURCE_REQUEST
+Aku ingin memperbarui ketersediaan waktu belajarku menjadi 10 jam per minggu.,CONSTRAINT_UPDATE
+Gw butuh kursus dengan biaya di bawah 5 juta rupiah.,CONSTRAINT_UPDATE
+Saya ingin memperbarui budget saya untuk kursus menjadi 10 juta.,CONSTRAINT_UPDATE
+Aku mau belajar tapi waktu luangku cuma 5 jam seminggu.,CONSTRAINT_UPDATE
+Lu bisa bantu aku cari kursus dengan waktu belajar fleksibel?,CONSTRAINT_UPDATE
+Saya ingin mengubah jadwal belajarku menjadi malam hari saja.,CONSTRAINT_UPDATE
+Aku butuh kursus yang bisa diselesaikan dalam waktu 3 bulan.,CONSTRAINT_UPDATE
+Gw ingin memperbarui kriteria pencarian kursus berdasarkan biaya.,CONSTRAINT_UPDATE
+Saya ingin memilih kursus yang memiliki durasi belajar singkat.,CONSTRAINT_UPDATE
+"Aku mau daftar kursus tapi anggaranku terbatas, bisa bantu?",CONSTRAINT_UPDATE
+Saya ingin mencari kursus dengan biaya yang lebih murah.,CONSTRAINT_UPDATE
+Gw ingin memperbarui preferensi waktu belajarku menjadi siang hari.,CONSTRAINT_UPDATE
+Aku ingin belajar tapi ketersediaan waktu belajarku terbatas.,CONSTRAINT_UPDATE
+Saya ingin mengupdate kriteria pencarian kursus berdasarkan waktu belajar.,CONSTRAINT_UPDATE
+Aku ingin mencari kursus yang bisa diikuti secara online dengan biaya rendah.,CONSTRAINT_UPDATE
+Gw ingin memperbarui budget belajarku menjadi 20 juta rupiah.,CONSTRAINT_UPDATE
+Saya ingin memperbarui jadwal belajarku agar lebih fleksibel.,CONSTRAINT_UPDATE
+Aku ingin mencari kursus yang memiliki biaya kurang dari 2 juta rupiah.,CONSTRAINT_UPDATE
+Saya ingin memperbarui kriteria pencarian kursus berdasarkan durasi belajar.,CONSTRAINT_UPDATE
+Gw ingin memperbarui preferensi belajarku menjadi secara offline.,CONSTRAINT_UPDATE
+Aku ingin memperbarui ketersediaan waktu belajarku menjadi 15 jam per minggu.,CONSTRAINT_UPDATE
+Saya ingin mencari kursus dengan biaya yang lebih terjangkau.,CONSTRAINT_UPDATE
+Aku ingin memperbarui budget belajarku menjadi 15 juta rupiah.,CONSTRAINT_UPDATE
+Gw ingin memperbarui kriteria pencarian kursus berdasarkan waktu belajar dan biaya.,CONSTRAINT_UPDATE
+Saya ingin memperbarui jadwal belajarku menjadi pagi hari saja.,CONSTRAINT_UPDATE
+Aku ingin mencari kursus yang bisa diselesaikan dalam waktu 6 bulan.,CONSTRAINT_UPDATE
+Gw ingin memperbarui preferensi belajarku menjadi secara online dengan biaya rendah.,CONSTRAINT_UPDATE
+Saya ingin memperbarui kriteria pencarian kursus berdasarkan biaya dan durasi belajar.,CONSTRAINT_UPDATE
+Aku ingin memperbarui ketersediaan waktu belajarku menjadi 20 jam per minggu.,CONSTRAINT_UPDATE
+Saya ingin mencari kursus dengan biaya yang lebih murah dan waktu belajar yang fleksibel.,CONSTRAINT_UPDATE
+Gw ingin memperbarui budget belajarku menjadi 25 juta rupiah.,CONSTRAINT_UPDATE
+Aku ingin memperbarui kriteria pencarian kursus berdasarkan waktu belajar dan biaya.,CONSTRAINT_UPDATE
+Saya ingin memperbarui preferensi belajarku menjadi secara offline dengan biaya rendah.,CONSTRAINT_UPDATE
+Aku ingin memperbarui ketersediaan waktu belajarku menjadi 25 jam per minggu.,CONSTRAINT_UPDATE
+"Gw ingin memperbarui kriteria pencarian kursus berdasarkan biaya, waktu belajar, dan durasi belajar.",CONSTRAINT_UPDATE
+"Aku mau ubah jadwal belajar aku nih, sekarang aku bisa belajar 10 jam per minggu.",CONSTRAINT_UPDATE
+"Saya ingin memperbarui ketersediaan waktu belajar saya, sekarang saya hanya punya 5 jam per minggu.",CONSTRAINT_UPDATE
+"Gw baru aja nemu kerjaan baru, jadi gw harus ubah jadwal belajar gw jadi 15 jam per minggu.",CONSTRAINT_UPDATE
+"Saya ingin mengubah anggaran saya untuk kursus, sekarang saya hanya punya budget 500 ribu per bulan.",CONSTRAINT_UPDATE
+"Aku ingin memperbarui preferensi waktu belajar aku, sekarang aku lebih suka belajar di pagi hari.",CONSTRAINT_UPDATE
+"Saya ingin mengupdate ketersediaan waktu belajar saya, sekarang saya hanya punya waktu di akhir pekan.",CONSTRAINT_UPDATE
+"Gw mau ubah tujuan karir gw, sekarang gw ingin fokus di bidang IT.",CONSTRAINT_UPDATE
+"Saya ingin memperbarui informasi tentang ketersediaan waktu belajar saya, sekarang saya memiliki waktu lebih banyak di malam hari.",CONSTRAINT_UPDATE
+"Aku ingin mengubah prioritas belajar aku, sekarang aku ingin fokus di bidang desain grafis.",CONSTRAINT_UPDATE
+"Saya ingin mengupdate anggaran saya untuk kursus, sekarang saya memiliki budget 1 juta per bulan.",CONSTRAINT_UPDATE
+"Gw mau ubah jadwal belajar gw jadi lebih fleksibel, sehingga gw bisa menyesuaikan dengan jadwal kerja gw.",CONSTRAINT_UPDATE
+"Saya ingin memperbarui preferensi waktu belajar saya, sekarang saya lebih suka belajar di sore hari.",CONSTRAINT_UPDATE
+"Aku ingin memperbarui informasi tentang ketersediaan waktu belajar aku, sekarang aku memiliki waktu lebih sedikit di pagi hari.",CONSTRAINT_UPDATE
+"Saya ingin mengupdate ketersediaan waktu belajar saya, sekarang saya hanya punya waktu di hari Jumat.",CONSTRAINT_UPDATE
+"Gw mau ubah tujuan karir gw, sekarang gw ingin fokus di bidang marketing.",CONSTRAINT_UPDATE
+"Saya ingin memperbarui anggaran saya untuk kursus, sekarang saya memiliki budget 2 juta per bulan.",CONSTRAINT_UPDATE
+"Aku ingin memperbarui prioritas belajar aku, sekarang aku ingin fokus di bidang programming.",CONSTRAINT_UPDATE
+"Saya ingin mengupdate ketersediaan waktu belajar saya, sekarang saya memiliki waktu lebih banyak di siang hari.",CONSTRAINT_UPDATE
+"Gw mau ubah jadwal belajar gw jadi lebih singkat, sehingga gw bisa menyelesaikan kursus lebih cepat.",CONSTRAINT_UPDATE
+"Saya ingin memperbarui preferensi waktu belajar saya, sekarang saya lebih suka belajar di malam hari.",CONSTRAINT_UPDATE
+"Aku ingin memperbarui informasi tentang ketersediaan waktu belajar aku, sekarang aku memiliki waktu lebih sedikit di sore hari.",CONSTRAINT_UPDATE
+"Saya ingin mengupdate anggaran saya untuk kursus, sekarang saya memiliki budget 3 juta per bulan.",CONSTRAINT_UPDATE
+"Gw mau ubah tujuan karir gw, sekarang gw ingin fokus di bidang keuangan.",CONSTRAINT_UPDATE
+"Saya ingin memperbarui ketersediaan waktu belajar saya, sekarang saya hanya punya waktu di hari Sabtu.",CONSTRAINT_UPDATE
+"Aku ingin memperbarui prioritas belajar aku, sekarang aku ingin fokus di bidang bisnis.",CONSTRAINT_UPDATE
+"Saya ingin mengupdate ketersediaan waktu belajar saya, sekarang saya memiliki waktu lebih banyak di pagi hari.",CONSTRAINT_UPDATE
+"Gw mau ubah jadwal belajar gw jadi lebih panjang, sehingga gw bisa menyelesaikan kursus lebih teliti.",CONSTRAINT_UPDATE
+"Saya ingin memperbarui preferensi waktu belajar saya, sekarang saya lebih suka belajar di siang hari.",CONSTRAINT_UPDATE
+"Aku ingin memperbarui informasi tentang ketersediaan waktu belajar aku, sekarang aku memiliki waktu lebih sedikit di malam hari.",CONSTRAINT_UPDATE
+"Saya ingin mengupdate anggaran saya untuk kursus, sekarang saya memiliki budget 4 juta per bulan.",CONSTRAINT_UPDATE
+"Gw mau ubah tujuan karir gw, sekarang gw ingin fokus di bidang pendidikan.",CONSTRAINT_UPDATE
+"Saya ingin memperbarui ketersediaan waktu belajar saya, sekarang saya hanya punya waktu di hari Minggu.",CONSTRAINT_UPDATE
+"Aku ingin memperbarui prioritas belajar aku, sekarang aku ingin fokus di bidang kesehatan.",CONSTRAINT_UPDATE
+"Saya ingin mengupdate ketersediaan waktu belajar saya, sekarang saya memiliki waktu lebih banyak di sore hari.",CONSTRAINT_UPDATE
+"Gw mau ubah jadwal belajar gw jadi lebih fleksibel, sehingga gw bisa menyesuaikan dengan jadwal kerja gw.",CONSTRAINT_UPDATE
+Aku ingin ubah jadwal belajar jadi 2 kali seminggu aja nih.,CONSTRAINT_UPDATE
+Gimana caranya update anggaran kursus gw?,CONSTRAINT_UPDATE
+"Aku butuh ubah ketersediaan waktu belajar, sekarang cuma 1 jam sehari.",CONSTRAINT_UPDATE
+Lu bisa bantu aku update batasan waktu belajar per minggu?,CONSTRAINT_UPDATE
+"Mau tanya, bisa nggak aku ganti anggaran kursus jadi 500 ribu per bulan?",CONSTRAINT_UPDATE
+"Ubah jadwal belajar aku jadi pagi hari aja, makasih.",CONSTRAINT_UPDATE
+"Aku pengen ubah batasan umur untuk mencari lowongan kerja, bisa bantu?",CONSTRAINT_UPDATE
+Gimana caranya aku update preferensi lokasi kerja?,CONSTRAINT_UPDATE
+"Aku ingin mengubah kriteria pencarian kerja, sekarang aku lebih suka kerja remote.",CONSTRAINT_UPDATE
+"Mau tanya, bisa nggak aku ubah level pengalaman kerja yang aku cari?",CONSTRAINT_UPDATE
+"Ubah anggaran kursus aku jadi 1 juta per bulan, dong.",CONSTRAINT_UPDATE
+"Aku butuh update ketersediaan waktu untuk wawancara, sekarang cuma sore hari.",CONSTRAINT_UPDATE
+"Aku ingin mengganti kategori pekerjaan yang aku cari, sekarang aku lebih suka kerja di bidang IT.",CONSTRAINT_UPDATE
+Gimana caranya aku ubah preferensi gaji yang aku harapkan?,CONSTRAINT_UPDATE
+Aku mau ubah batasan waktu pengalaman kerja untuk lowongan yang aku cari.,CONSTRAINT_UPDATE
+"Mau tanya, bisa nggak aku update kriteria pendidikan untuk mencari lowongan kerja?",CONSTRAINT_UPDATE
+"Aku ingin mengubah ketersediaan waktu belajar, sekarang aku lebih suka belajar malam hari.",CONSTRAINT_UPDATE
+"Ubah jadwal belajar aku jadi 3 kali seminggu, makasih.",CONSTRAINT_UPDATE
+"Aku pengen ubah batasan usia untuk mencari lowongan magang, bisa bantu?",CONSTRAINT_UPDATE
+Gimana caranya aku update preferensi jenis pekerjaan yang aku cari?,CONSTRAINT_UPDATE
+"Aku ingin mengganti level ketersediaan waktu untuk belajar, sekarang aku lebih suka belajar pagi hari.",CONSTRAINT_UPDATE
+"Aku butuh update kriteria kemampuan bahasa untuk mencari lowongan kerja, sekarang aku lebih suka kerja yang menggunakan bahasa Inggris.",CONSTRAINT_UPDATE
+"Mau tanya, bisa nggak aku ubah anggaran untuk kursus online?",CONSTRAINT_UPDATE
+"Ubah preferensi lokasi kerja aku jadi di luar kota, dong.",CONSTRAINT_UPDATE
+"Aku ingin mengubah kriteria pengalaman kerja yang aku cari, sekarang aku lebih suka kerja yang memiliki pengalaman minimal 2 tahun.",CONSTRAINT_UPDATE
+"Aku pengen ubah batasan waktu untuk mencari lowongan kerja, sekarang aku lebih suka kerja yang memiliki jam kerja fleksibel.",CONSTRAINT_UPDATE
+"Gimana caranya aku update kriteria pendidikan untuk mencari lowongan kerja, sekarang aku lebih suka kerja yang memiliki gelar S1?",CONSTRAINT_UPDATE
+"Aku ingin mengganti ketersediaan waktu untuk wawancara, sekarang aku lebih suka wawancara yang dilakukan secara online.",CONSTRAINT_UPDATE
+"Aku butuh update kriteria kemampuan yang aku cari, sekarang aku lebih suka kerja yang memiliki kemampuan analisis data.",CONSTRAINT_UPDATE
+"Mau tanya, bisa nggak aku ubah preferensi gaji yang aku harapkan, sekarang aku lebih suka gaji yang di atas 5 juta per bulan?",CONSTRAINT_UPDATE
+"Ubah batasan usia aku untuk mencari lowongan kerja jadi 25-35 tahun, makasih.",CONSTRAINT_UPDATE
+"Aku ingin mengubah kriteria jenis pekerjaan yang aku cari, sekarang aku lebih suka kerja yang memiliki jenis pekerjaan full-time.",CONSTRAINT_UPDATE
+"Aku pengen ubah ketersediaan waktu belajar aku jadi 4 jam sehari, bisa bantu?",CONSTRAINT_UPDATE
+"Gw kurang setuju sama rekomendasi yang diberikan, bisa dibantu cari alternatif lain ga?",PUSH_BACK
+"Aku rasa rekomendasi itu tidak sesuai dengan minatku, bisa bantu cari yang lebih tepat?",PUSH_BACK
+"Lu kasih rekomendasi kayak gini, tapi gw lebih suka yang lain, bisa dibantu?",PUSH_BACK
+"Nih, gw udah baca rekomendasi yang diberikan, tapi kurang cocok, bisa cari yang lain?",PUSH_BACK
+"Saya tidak terlalu yakin dengan rekomendasi yang diberikan, bisa dijelaskan lebih lanjut?",PUSH_BACK
+"Gak terlalu suka sama rekomendasi yang diberikan, bisa cari yang lebih sesuai?",PUSH_BACK
+"Aku ingin mencari rekomendasi lain, karena yang ini tidak sesuai dengan tujuanku",PUSH_BACK
+"Rekomendasi yang diberikan kurang pas, bisa dibantu cari yang lebih baik?",PUSH_BACK
+"Saya ingin menolak rekomendasi yang diberikan, karena tidak sesuai dengan kebutuhan",PUSH_BACK
+"Gw butuh rekomendasi yang lebih spesifik, karena yang ini kurang sesuai",PUSH_BACK
+"Tolong cari rekomendasi lain, karena yang ini tidak membuatku yakin",PUSH_BACK
+"Gak yakin sama rekomendasi yang diberikan, butuh penjelasan lebih lanjut",PUSH_BACK
+"Aku ingin mencari rekomendasi yang lebih baik, karena yang ini tidak cukup",PUSH_BACK
+"Rekomendasi yang diberikan kurang membantu, bisa cari yang lebih baik?",PUSH_BACK
+"Saya tidak ingin melanjutkan dengan rekomendasi yang diberikan, butuh alternatif lain",PUSH_BACK
+"Gw butuh rekomendasi yang lebih akurat, karena yang ini kurang tepat",PUSH_BACK
+"Tidak terlalu suka sama rekomendasi yang diberikan, bisa cari yang lain?",PUSH_BACK
+"Aku ingin menolak rekomendasi yang diberikan, karena tidak sesuai dengan goal",PUSH_BACK
+"Gak ingin melanjutkan dengan rekomendasi yang diberikan, butuh yang lebih baik",PUSH_BACK
+"Saya ingin mencari rekomendasi yang lebih sesuai, karena yang ini kurang cocok",PUSH_BACK
+"Rekomendasi yang diberikan kurang membantu, bisa cari yang lebih sesuai?",PUSH_BACK
+"Gw butuh rekomendasi yang lebih spesifik, karena yang ini kurang jelas",PUSH_BACK
+"Aku ingin mencari rekomendasi lain, karena yang ini tidak membuatku yakin",PUSH_BACK
+"Tolong cari rekomendasi yang lebih baik, karena yang ini kurang sesuai",PUSH_BACK
+"Gak yakin sama rekomendasi yang diberikan, butuh penjelasan lebih lanjut",PUSH_BACK
+"Saya tidak ingin melanjutkan dengan rekomendasi yang diberikan, butuh alternatif lain",PUSH_BACK
+"Gw butuh rekomendasi yang lebih akurat, karena yang ini kurang tepat",PUSH_BACK
+"Aku ingin menolak rekomendasi yang diberikan, karena tidak sesuai dengan kebutuhan",PUSH_BACK
+"Rekomendasi yang diberikan kurang membantu, bisa cari yang lebih baik?",PUSH_BACK
+"Gak ingin melanjutkan dengan rekomendasi yang diberikan, butuh yang lebih baik",PUSH_BACK
+"Saya ingin mencari rekomendasi yang lebih sesuai, karena yang ini kurang cocok",PUSH_BACK
+"Tolong cari rekomendasi lain, karena yang ini tidak membuatku yakin",PUSH_BACK
+"Gw butuh rekomendasi yang lebih spesifik, karena yang ini kurang jelas",PUSH_BACK
+"Aku ingin mencari rekomendasi yang lebih baik, karena yang ini tidak cukup",PUSH_BACK
+Gak setuju sama rekomendasi roadmap yang diberikan,PUSH_BACK
+Aku kurang tertarik dengan kursus yang kamu sarankan,PUSH_BACK
+"Kenapa harus ambil kursus itu, emang penting banget?",PUSH_BACK
+"Gw lebih suka ambil kursus yang lain, dong",PUSH_BACK
+Rekomendasi skill yang diberikan kurang relevan sama minat gw,PUSH_BACK
+Aku tidak terlalu yakin dengan pilihan karir yang kamu sarankan,PUSH_BACK
+"Emang kursus itu worth it, ga?",PUSH_BACK
+Gw lebih suka cari informasi sendiri tentang karir yang mau gw jalani,PUSH_BACK
+Rekomendasi yang diberikan kurang sesuai dengan kebutuhan gw,PUSH_BACK
+Aku kurang yakin apakah roadmap yang diberikan sudah tepat,PUSH_BACK
+Gw butuh saran yang lebih spesifik tentang karir yang mau gw jalani,PUSH_BACK
+Tolong berikan alasan kenapa aku harus ambil kursus itu,PUSH_BACK
+Gak ada yang mau aku tanyakan tentang rekomendasi yang diberikan,PUSH_BACK
+Aku lebih suka ambil keputusan sendiri tentang karir gw,PUSH_BACK
+Gw kurang setuju dengan prioritas yang diberikan dalam rekomendasi,PUSH_BACK
+Aku butuh rekomendasi yang lebih sesuai dengan minat dan bakat gw,PUSH_BACK
+Gw tidak yakin apakah rekomendasi yang diberikan sudah akurat,PUSH_BACK
+Tolong berikan contoh kasus yang relevan dengan rekomendasi yang diberikan,PUSH_BACK
+"Aku kurang puas dengan rekomendasi yang diberikan, tolong berikan alternatif",PUSH_BACK
+Gw butuh penjelasan yang lebih rinci tentang rekomendasi yang diberikan,PUSH_BACK
+Aku tidak mau ambil kursus yang tidak sesuai dengan minat gw,PUSH_BACK
+Gw lebih suka cari informasi dari sumber lain tentang karir yang mau gw jalani,PUSH_BACK
+Aku kurang yakin apakah rekomendasi yang diberikan sudah mempertimbangkan kebutuhan gw,PUSH_BACK
+Tolong berikan rekomendasi yang lebih fleksibel dan bisa disesuaikan dengan kebutuhan gw,PUSH_BACK
+Gw kurang setuju dengan waktu yang diperlukan untuk menyelesaikan kursus yang disarankan,PUSH_BACK
+Aku butuh rekomendasi yang lebih spesifik dan terperinci tentang karir yang mau gw jalani,PUSH_BACK
+Gw tidak ingin mengambil risiko dengan mengikuti rekomendasi yang diberikan,PUSH_BACK
+Aku kurang yakin apakah rekomendasi yang diberikan sudah mempertimbangkan kemampuan gw,PUSH_BACK
+Tolong berikan rekomendasi yang lebih sesuai dengan tujuan karir gw,PUSH_BACK
+Gw lebih suka ambil keputusan sendiri tentang karir gw tanpa banyak pertimbangan,PUSH_BACK
+"Gw udah coba beberapa kursus yang kamu sarankan, tapi gw masih bingung",PUSH_BACK
+Aku tidak setuju dengan rekomendasi roadmap yang kamu berikan,PUSH_BACK
+"Kursus yang kamu sarankan terlalu mahal, ada alternatif lain gak?",PUSH_BACK
+"Lu sarankan gw ambil kursus itu, tapi gw lebih tertarik dengan yang lain",PUSH_BACK
+"Aku sudah mencoba beberapa rekomendasi kamu, tapi hasilnya tidak sesuai ekspektasi",PUSH_BACK
+"Gw kurang tertarik dengan skill yang kamu sarankan, bisa ganti dengan yang lain?",PUSH_BACK
+"Rekomendasi kamu tidak sesuai dengan minat aku, tolong berikan alternatif",PUSH_BACK
+"Aku sudah mencoba beberapa kursus, tapi tidak ada yang sesuai dengan kebutuhan aku",PUSH_BACK
+"Gw merasa rekomendasi kamu tidak tepat, bisa dijelaskan alasan di baliknya?",PUSH_BACK
+"Aku ingin mencoba skill lain, bukan yang kamu sarankan",PUSH_BACK
+"Kursus yang kamu sarankan terlalu lama, ada yang lebih singkat?",PUSH_BACK
+"Gw lebih tertarik dengan bidang lain, bisa berikan rekomendasi?",PUSH_BACK
+"Aku tidak ingin mengambil kursus yang kamu sarankan, ada alasan lain?",PUSH_BACK
+"Gw kurang yakin dengan rekomendasi kamu, bisa berikan contoh?",PUSH_BACK
+"Aku ingin mencoba yang lebih menantang, bukan yang kamu sarankan",PUSH_BACK
+"Rekomendasi kamu tidak sesuai dengan tujuan aku, tolong berikan alternatif",PUSH_BACK
+"Gw merasa rekomendasi kamu tidak lengkap, bisa tambahkan?",PUSH_BACK
+"Aku ingin mencoba yang lebih terkini, bukan yang kamu sarankan",PUSH_BACK
+"Kursus yang kamu sarankan terlalu banyak, bisa dipilih yang paling penting?",PUSH_BACK
+"Gw lebih tertarik dengan yang lebih spesifik, bukan yang kamu sarankan",PUSH_BACK
+"Aku ingin mencoba yang lebih mudah, bukan yang kamu sarankan",PUSH_BACK
+"Rekomendasi kamu tidak sesuai dengan gaya belajar aku, tolong berikan alternatif",PUSH_BACK
+"Gw merasa rekomendasi kamu tidak fleksibel, bisa disesuaikan?",PUSH_BACK
+"Aku ingin mencoba yang lebih interaktif, bukan yang kamu sarankan",PUSH_BACK
+"Kursus yang kamu sarankan terlalu teoritis, ada yang lebih praktek?",PUSH_BACK
+"Gw lebih tertarik dengan yang lebih terstruktur, bukan yang kamu sarankan",PUSH_BACK
+"Aku ingin mencoba yang lebih terkait dengan pekerjaan aku, bukan yang kamu sarankan",PUSH_BACK
+"Rekomendasi kamu tidak sesuai dengan kebutuhan perusahaan aku, tolong berikan alternatif",PUSH_BACK
+"Gw merasa rekomendasi kamu tidak mempertimbangkan pengalaman aku, bisa direvisi?",PUSH_BACK
+"Aku ingin mencoba yang lebih menarik, bukan yang kamu sarankan",PUSH_BACK
+"Kursus yang kamu sarankan terlalu banyak teori, ada yang lebih praktis?",PUSH_BACK
+"Gw lebih tertarik dengan yang lebih inovatif, bukan yang kamu sarankan",PUSH_BACK
+"Aku ingin mencoba yang lebih sesuai dengan minat aku, bukan yang kamu sarankan",PUSH_BACK
+"Rekomendasi kamu tidak sesuai dengan tujuan jangka panjang aku, tolong berikan alternatif",PUSH_BACK
+"Gw merasa rekomendasi kamu tidak mempertimbangkan kemampuan aku, bisa direvisi?",PUSH_BACK
+"Ya, saya setuju",CONFIRMATION
+Saya ingin melanjutkan,CONFIRMATION
+"Iya, lanjutkan saja",CONFIRMATION
+"Oke, saya siap",CONFIRMATION
+"Setuju, mari kita lanjutkan",CONFIRMATION
+Gw setuju,CONFIRMATION
+Aku mau lanjut,CONFIRMATION
+Lanjut aja,CONFIRMATION
+"Sip, lanjutkan",CONFIRMATION
+"Baiklah, saya setuju",CONFIRMATION
+"Iya, saya konfirmasi",CONFIRMATION
+Saya iyakan,CONFIRMATION
+"Setuju, terima kasih",CONFIRMATION
+"Makasih, saya setuju",CONFIRMATION
+Lanjutkan saja,CONFIRMATION
+"Gak masalah, lanjut aja",CONFIRMATION
+Saya oke,CONFIRMATION
+"Lanjut, dong",CONFIRMATION
+"Saya siap, lanjutkan",CONFIRMATION
+"Iya, saya konfirm",CONFIRMATION
+"Setuju, saya lanjut",CONFIRMATION
+"Saya setuju, terima kasih",CONFIRMATION
+"Oke deh, lanjut",CONFIRMATION
+Gw oke,CONFIRMATION
+"Lanjut saja, ya",CONFIRMATION
+"Saya setuju, mari kita lanjut",CONFIRMATION
+"Iya, gw setuju",CONFIRMATION
+"Saya mau, lanjutkan",CONFIRMATION
+"Setuju, sip",CONFIRMATION
+"Lanjut, makasih",CONFIRMATION
+"Saya setuju, oke",CONFIRMATION
+"Gak masalah, setuju",CONFIRMATION
+"Baik, aku siap melanjutkan.",CONFIRMATION
+"Oke, lanjut ke langkah berikutnya.",CONFIRMATION
+Saya setuju dengan pilihan itu.,CONFIRMATION
+"Gw udah baca, lanjut aja.",CONFIRMATION
+"Kalau begitu, saya konfirmasi.",CONFIRMATION
+"Iya, saya ingin melanjutkan.",CONFIRMATION
+"Makasih, saya siap lanjut.",CONFIRMATION
+Saya mengonfirmasi pilihan itu.,CONFIRMATION
+"Lanjut aja, gw udah siap.",CONFIRMATION
+"Oke, saya konfirmasi.",CONFIRMATION
+"Saya setuju, lanjut ke berikutnya.",CONFIRMATION
+"Gw siap, lanjutkan aja.",CONFIRMATION
+"Saya sudah membaca, lanjut.",CONFIRMATION
+"Iya, lanjut ke langkah selanjutnya.",CONFIRMATION
+Saya mengiyakan pilihan itu.,CONFIRMATION
+"Baiklah, saya konfirmasi.",CONFIRMATION
+"Lanjut aja, makasih.",CONFIRMATION
+"Saya siap, oke lanjut.",CONFIRMATION
+"Saya setuju, konfirmasi.",CONFIRMATION
+"Gw udah siap, lanjut.",CONFIRMATION
+"Oke, saya lanjutkan.",CONFIRMATION
+"Saya konfirmasi, lanjut.",CONFIRMATION
+"Iya, lanjutkan aja.",CONFIRMATION
+"Saya mengonfirmasi, oke.",CONFIRMATION
+"Baik, saya siap lanjut.",CONFIRMATION
+"Lanjut ke langkah berikutnya, dong.",CONFIRMATION
+"Saya setuju, lanjut aja.",CONFIRMATION
+"Gw siap melanjutkan, makasih.",CONFIRMATION
+"Oke, saya konfirmasi, lanjut.",CONFIRMATION
+"Saya mengiyakan, lanjutkan.",CONFIRMATION
+"Saya siap, lanjut ke berikutnya.",CONFIRMATION
+"Iya, saya konfirmasi, oke.",CONFIRMATION
+"Lanjutkan, saya sudah siap.",CONFIRMATION
+"Saya setuju, konfirmasi, lanjut.",CONFIRMATION
+"Gw udah siap, oke lanjut.",CONFIRMATION
+"Sudah, lanjut ke tahap berikutnya.",CONFIRMATION
+"Setuju, apa yang harus aku lakukan selanjutnya?",CONFIRMATION
+"Gw udah paham, lanjut aja.",CONFIRMATION
+"Oke, gw setuju.",CONFIRMATION
+"Makasih, lanjut ke langkah berikutnya.",CONFIRMATION
+Saya siap melanjutkan.,CONFIRMATION
+"Aku udah siap, apa yang harus aku lakukan?",CONFIRMATION
+"Lanjut aja, saya udah siap.",CONFIRMATION
+Saya setuju dengan kesepakatan tersebut.,CONFIRMATION
+"Oke, saya konfirmasi.",CONFIRMATION
+Apa yang harus saya lakukan berikutnya?,CONFIRMATION
+Saya siap untuk melanjutkan proses.,CONFIRMATION
+"Gw setuju, lanjut ke step berikutnya.",CONFIRMATION
+Saya konfirmasi data yang sudah diisi.,CONFIRMATION
+"Lanjutkan, saya udah siap.",CONFIRMATION
+Saya sudah membaca dan setuju.,CONFIRMATION
+"Setuju, apa langkah selanjutnya?",CONFIRMATION
+"Aku udah konfirmasi, lanjut ke tahap berikut.",CONFIRMATION
+Saya siap melanjutkan ke tahap berikutnya.,CONFIRMATION
+"Gw konfirmasi, lanjut aja.",CONFIRMATION
+Saya setuju dengan semua syarat.,CONFIRMATION
+"Oke, konfirmasi dari saya.",CONFIRMATION
+Saya sudah memahami dan setuju.,CONFIRMATION
+"Lanjutkan prosesnya, saya siap.",CONFIRMATION
+"Aku setuju, lanjut ke step berikut.",CONFIRMATION
+"Saya sudah konfirmasi, apa yang harus aku lakukan?",CONFIRMATION
+Saya setuju dengan perjanjian tersebut.,CONFIRMATION
+"Gw udah konfirmasi, lanjut aja.",CONFIRMATION
+Saya siap untuk melanjutkan.,CONFIRMATION
+Saya sudah membaca dan mengerti.,CONFIRMATION
+"Oke, saya konfirmasi dengan semua ketentuan.",CONFIRMATION
+"Aku siap, lanjut ke tahap berikutnya.",CONFIRMATION
+"Saya setuju, apa yang harus aku lakukan selanjutnya?",CONFIRMATION
+CV_REVIEW,CV_REVIEW
+"Aku butuh bantuan untuk mereview CV aku nih, apakah ada yang perlu diperbaiki?",CV_REVIEW
+"Mau tanya, bagaimana cara membuat CV yang menarik perusahaan?",CV_REVIEW
+"Gw baru aja buat CV, apakah kamu bisa kasih saran tentang apa yang perlu ditambah atau dikurang?",CV_REVIEW
+"CV gw kurang bagus, tolong kasih saran biar gw bisa diterima kerja",CV_REVIEW
+Apakah CV gw sudah sesuai dengan standar perusahaan?,CV_REVIEW
+"Butuh bantuan untuk mengedit CV, dong",CV_REVIEW
+Bagaimana cara membuat CV yang efektif agar dilirik perusahaan?,CV_REVIEW
+"Mau kasih CV gw untuk direview, apakah ada yang perlu diubah?",CV_REVIEW
+"Gw butuh feedback tentang CV gw, tolong bantu",CV_REVIEW
+"Aku ingin CV aku lebih baik, apakah ada tips?",CV_REVIEW
+"Mau tanya, bagaimana cara membuat CV yang menarik?",CV_REVIEW
+Gw butuh bantuan untuk memperbaiki CV gw,CV_REVIEW
+"Tolong kasih saran tentang CV gw, apa yang perlu diperbaiki?",CV_REVIEW
+"Aku butuh bantuan untuk mereview CV gw, apakah ada yang salah?",CV_REVIEW
+"Gw ingin tahu, bagaimana cara membuat CV yang baik dan benar?",CV_REVIEW
+"Butuh bantuan untuk mereview CV gw, dong",CV_REVIEW
+"Mau tanya, apa yang harus ada di CV agar dilirik perusahaan?",CV_REVIEW
+"Gw butuh saran tentang CV gw, tolong bantu",CV_REVIEW
+"Aku ingin CV gw lebih menarik, apakah ada tips?",CV_REVIEW
+"Mau kasih CV gw untuk diperiksa, apakah ada kesalahan?",CV_REVIEW
+Gw butuh bantuan untuk memperbaiki kesalahan di CV gw,CV_REVIEW
+"Tolong kasih saran tentang CV gw, apa yang perlu ditambah?",CV_REVIEW
+"Aku butuh bantuan untuk mereview CV gw, apakah ada yang kurang?",CV_REVIEW
+"Gw ingin tahu, bagaimana cara membuat CV yang efektif?",CV_REVIEW
+"Butuh bantuan untuk mereview CV gw, makasih",CV_REVIEW
+"Mau tanya, apa yang perlu ada di CV agar dilirik perusahaan?",CV_REVIEW
+"Gw butuh saran tentang CV gw, tolong dong",CV_REVIEW
+"Aku ingin CV gw lebih baik, apakah ada cara?",CV_REVIEW
+"Mau kasih CV gw untuk direview, apa yang perlu diperbaiki?",CV_REVIEW
+"Gw butuh bantuan untuk memperbaiki CV gw, tolong",CV_REVIEW
+"Tolong kasih saran tentang CV gw, apa yang perlu dikurang?",CV_REVIEW
+"Aku butuh bantuan untuk mereview CV gw, apakah ada yang salah?",CV_REVIEW
+"Tolong review CV gw, dong!",CV_REVIEW
+Aku butuh saran untuk memperbaiki resume aku.,CV_REVIEW
+Bagaimana cara membuat CV yang menarik?,CV_REVIEW
+"Minta tolong direview CV aku, ya.",CV_REVIEW
+Apa kekurangan dari CV aku ini?,CV_REVIEW
+Gimana cara membuat CV yang efektif?,CV_REVIEW
+Butuh bantuan untuk membuat CV yang baik.,CV_REVIEW
+"Coba tolong review CV aku, dong.",CV_REVIEW
+Aku ingin tahu apakah CV aku sudah baik.,CV_REVIEW
+Tolong berikan saran untuk memperbaiki CV aku.,CV_REVIEW
+Aku butuh feedback tentang CV aku ini.,CV_REVIEW
+Bagaimana cara membuat CV yang profesional?,CV_REVIEW
+Mau tahu apa kelebihan dan kekurangan CV aku?,CV_REVIEW
+Tolong review dan berikan saran untuk CV aku.,CV_REVIEW
+Aku ingin membuat CV yang menarik perusahaan.,CV_REVIEW
+Butuh saran untuk memperbarui CV aku.,CV_REVIEW
+Tolong cek CV aku dan berikan masukan.,CV_REVIEW
+Aku ingin tahu apakah CV aku sudah memadai.,CV_REVIEW
+"Minta tolong untuk mereview CV aku, ya.",CV_REVIEW
+Aku butuh bantuan untuk membuat CV yang baik.,CV_REVIEW
+Tolong berikan feedback tentang CV aku ini.,CV_REVIEW
+Aku ingin membuat CV yang efektif dan menarik.,CV_REVIEW
+Butuh saran untuk memperbaiki CV aku ini.,CV_REVIEW
+Mau tahu apa yang harus aku perbaiki di CV aku?,CV_REVIEW
+Tolong review CV aku dan berikan saran.,CV_REVIEW
+Aku ingin tahu apakah CV aku sudah sesuai.,CV_REVIEW
+"Butuh bantuan untuk mereview CV aku, dong.",CV_REVIEW
+Aku butuh saran untuk membuat CV yang profesional.,CV_REVIEW
+"Tolong cek dan review CV aku, ya.",CV_REVIEW
+Aku ingin membuat CV yang menarik dan efektif.,CV_REVIEW
+Minta tolong untuk memperbaiki CV aku ini.,CV_REVIEW
+"Aku butuh feedback tentang CV aku ini, dong.",CV_REVIEW
+Tolong berikan masukan untuk memperbaiki CV aku.,CV_REVIEW
+"Aku ingin tahu apakah CV aku sudah baik, dong.",CV_REVIEW
+Apakah profil LinkedIn gw sudah cukup menarik?,LINKEDIN_REVIEW
+Bagaimana cara membuat profil LinkedIn yang efektif?,LINKEDIN_REVIEW
+"Mau tahu tidak, apa yang kurang dari profil LinkedIn aku?",LINKEDIN_REVIEW
+Tolong berikan tips untuk mengoptimalkan profil LinkedIn dong!,LINKEDIN_REVIEW
+"Aku ingin tahu, bagaimana cara meningkatkan visibilitas profil LinkedIn?",LINKEDIN_REVIEW
+"Profil LinkedIn gw masih kosong, bantu aku isi ya!",LINKEDIN_REVIEW
+Bagaimana cara menulis deskripsi diri yang menarik di LinkedIn?,LINKEDIN_REVIEW
+Butuh saran untuk membuat profil LinkedIn yang profesional,LINKEDIN_REVIEW
+Apa saja yang perlu aku perbarui di profil LinkedIn aku?,LINKEDIN_REVIEW
+"Mau tahu pendapat lu tentang profil LinkedIn gw, Dong?",LINKEDIN_REVIEW
+Cara meningkatkan pengalaman kerja di profil LinkedIn gimana?,LINKEDIN_REVIEW
+"Tolong review profil LinkedIn aku, apa yang perlu diperbaiki?",LINKEDIN_REVIEW
+Bagaimana caranya biar profil LinkedIn aku lebih dilirik oleh recruiter?,LINKEDIN_REVIEW
+Butuh bantuan untuk mengedit profil LinkedIn gw biar lebih menarik,LINKEDIN_REVIEW
+Apa yang membuat profil LinkedIn aku kurang menarik?,LINKEDIN_REVIEW
+"Profil LinkedIn gw butuh dikembangkan, bantu aku ya!",LINKEDIN_REVIEW
+"Mau tahu, apa saja yang harus aku tambahkan di profil LinkedIn aku?",LINKEDIN_REVIEW
+"Aku ingin meningkatkan kemampuan bahasa Inggris di profil LinkedIn, gimana caranya?",LINKEDIN_REVIEW
+Cara membuat profil LinkedIn yang menonjol gimana?,LINKEDIN_REVIEW
+Tolong kasih saran untuk memperbarui profil LinkedIn aku,LINKEDIN_REVIEW
+Bagaimana cara membuat profil LinkedIn yang menarik bagi perusahaan?,LINKEDIN_REVIEW
+Apa saja yang perlu aku perhatikan saat membuat profil LinkedIn?,LINKEDIN_REVIEW
+"Mau tahu, apa yang membuat profil LinkedIn aku tidak menarik?",LINKEDIN_REVIEW
+Butuh bantuan untuk mengoptimalkan profil LinkedIn aku biar lebih baik,LINKEDIN_REVIEW
+Cara meningkatkan koneksi di LinkedIn gimana?,LINKEDIN_REVIEW
+"Aku ingin tahu, bagaimana cara membuat profil LinkedIn yang sempurna",LINKEDIN_REVIEW
+"Profil LinkedIn gw masih belum lengkap, bantu aku isi ya!",LINKEDIN_REVIEW
+Tolong berikan tips untuk meningkatkan visibilitas profil LinkedIn aku,LINKEDIN_REVIEW
+Apa saja yang perlu aku lakukan untuk meningkatkan profil LinkedIn aku?,LINKEDIN_REVIEW
+"Mau tahu, apa yang perlu aku ubah di profil LinkedIn aku?",LINKEDIN_REVIEW
+Cara membuat profil LinkedIn yang menarik dan efektif gimana?,LINKEDIN_REVIEW
+Butuh saran untuk memperbaiki profil LinkedIn aku biar lebih profesional,LINKEDIN_REVIEW
+"Aku ingin meningkatkan kemampuan di profil LinkedIn aku, gimana caranya?",LINKEDIN_REVIEW
+LINKEDIN_REVIEW,LINKEDIN_REVIEW
+[,LINKEDIN_REVIEW
+,LINKEDIN_REVIEW
+,LINKEDIN_REVIEW
+,LINKEDIN_REVIEW
+,LINKEDIN_REVIEW
+,LINKEDIN_REVIEW
+"""",LINKEDIN_REVIEW
+H,LINKEDIN_REVIEW
+a,LINKEDIN_REVIEW
+l,LINKEDIN_REVIEW
+o,LINKEDIN_REVIEW
+",",LINKEDIN_REVIEW
+,LINKEDIN_REVIEW
+a,LINKEDIN_REVIEW
+k,LINKEDIN_REVIEW
+u,LINKEDIN_REVIEW
+,LINKEDIN_REVIEW
+i,LINKEDIN_REVIEW
+n,LINKEDIN_REVIEW
+g,LINKEDIN_REVIEW
+i,LINKEDIN_REVIEW
+n,LINKEDIN_REVIEW
+,LINKEDIN_REVIEW
+t,LINKEDIN_REVIEW
+a,LINKEDIN_REVIEW
+h,LINKEDIN_REVIEW
+u,LINKEDIN_REVIEW
+,LINKEDIN_REVIEW
+a,LINKEDIN_REVIEW
+p,LINKEDIN_REVIEW
+a,LINKEDIN_REVIEW
+,LINKEDIN_REVIEW
+y,LINKEDIN_REVIEW
+a,LINKEDIN_REVIEW
+n,LINKEDIN_REVIEW
+g,LINKEDIN_REVIEW
+,LINKEDIN_REVIEW
+m,LINKEDIN_REVIEW
+e,LINKEDIN_REVIEW
+m,LINKEDIN_REVIEW
+b,LINKEDIN_REVIEW
+u,LINKEDIN_REVIEW
+a,LINKEDIN_REVIEW
+t,LINKEDIN_REVIEW
+,LINKEDIN_REVIEW
+p,LINKEDIN_REVIEW
+r,LINKEDIN_REVIEW
+o,LINKEDIN_REVIEW
+f,LINKEDIN_REVIEW
+i,LINKEDIN_REVIEW
+l,LINKEDIN_REVIEW
+,LINKEDIN_REVIEW
+L,LINKEDIN_REVIEW
+i,LINKEDIN_REVIEW
+n,LINKEDIN_REVIEW
+k,LINKEDIN_REVIEW
+e,LINKEDIN_REVIEW
+d,LINKEDIN_REVIEW
+I,LINKEDIN_REVIEW
+n,LINKEDIN_REVIEW
+-,LINKEDIN_REVIEW
+k,LINKEDIN_REVIEW
+u,LINKEDIN_REVIEW
+,LINKEDIN_REVIEW
+k,LINKEDIN_REVIEW
+u,LINKEDIN_REVIEW
+r,LINKEDIN_REVIEW
+a,LINKEDIN_REVIEW
+n,LINKEDIN_REVIEW
+g,LINKEDIN_REVIEW
+,LINKEDIN_REVIEW
+m,LINKEDIN_REVIEW
+e,LINKEDIN_REVIEW
+n,LINKEDIN_REVIEW
+a,LINKEDIN_REVIEW
+r,LINKEDIN_REVIEW
+i,LINKEDIN_REVIEW
+k,LINKEDIN_REVIEW
+",",LINKEDIN_REVIEW
+,LINKEDIN_REVIEW
+b,LINKEDIN_REVIEW
+i,LINKEDIN_REVIEW
+s,LINKEDIN_REVIEW
+a,LINKEDIN_REVIEW
+k,LINKEDIN_REVIEW
+a,LINKEDIN_REVIEW

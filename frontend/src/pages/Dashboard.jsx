@@ -692,66 +692,38 @@ export default function Dashboard() {
                           </div>
                         )}
 
-{/* Skill Gaps */}
-{skillGaps.length > 0 ? (
-  <div className="w-full overflow-x-auto">
-    <table className="min-w-full bg-white border border-gray-200 rounded-lg">
-      <thead>
-        <tr className="bg-gray-50">
-          <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Skill</th>
-          <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Required</th>
-          <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Current</th>
-          <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Severity</th>
-          <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Suggestion</th>
-        </tr>
-      </thead>
-      <tbody className="divide-y divide-gray-200">
-        {skillGaps.map((gap, idx) => {
-          if (typeof gap === 'string') {
-            return (
-              <tr key={idx}>
-                <td className="px-4 py-2 text-sm text-gray-800">{gap}</td>
-                <td className="px-4 py-2 text-sm text-gray-600">—</td>
-                <td className="px-4 py-2 text-sm text-gray-600">—</td>
-                <td className="px-4 py-2"><span className="bg-red-50 text-red-600 text-xs font-bold px-2 py-0.5 rounded-full">High</span></td>
-                <td className="px-4 py-2 text-sm text-gray-600">—</td>
-              </tr>
-            );
-          }
-          const severity = gap.gap_severity || 'medium';
-          const severityMap = {
-            high: {bg: 'bg-red-50 text-red-600', label: 'High'},
-            medium: {bg: 'bg-amber-50 text-amber-600', label: 'Medium'},
-            low: {bg: 'bg-blue-50 text-blue-600', label: 'Low'},
-          };
-          const sevInfo = severityMap[severity] || severityMap.medium;
-          return (
-            <tr key={idx}>
-              <td className="px-4 py-2 text-sm text-gray-800">{gap.skill}</td>
-              <td className="px-4 py-2 text-sm text-gray-800">{gap.required_level || '—'}</td>
-              <td className="px-4 py-2 text-sm text-gray-800">{gap.current_level || '—'}</td>
-              <td className="px-4 py-2"><span className={`${sevInfo.bg} text-xs font-bold px-2 py-0.5 rounded-full`}>{sevInfo.label}</span></td>
-              <td className="px-4 py-2 text-sm text-gray-800">{gap.suggestion || '—'}</td>
-            </tr>
-          );
-        })}
-      </tbody>
-    </table>
-  </div>
-) : (
-  <div className="flex flex-col items-center justify-center flex-1 py-12 space-y-3 text-center">
-    <div className="w-12 h-12 bg-[#F0F8F1] rounded-2xl flex items-center justify-center text-xl">📋</div>
-    <div>
-      <p className="text-xs font-bold text-gray-700">Analisis ATS Belum Tersedia</p>
-      <p className="text-[11px] text-gray-400 mt-1 leading-relaxed max-w-xs">
-        Upload CV dan paste deskripsi kerja untuk memulai analisis kecocokan profil.
-      </p>
-    </div>
-    <button onClick={() => setActiveNav('Document Vault')} className="text-[11px] font-bold text-[#2D5C30] hover:underline">
-      Upload Dokumen →
-    </button>
-  </div>
-)}
+                        {/* Skill Gaps preview — top 3 only */}
+                        {skillGaps.length > 0 && (
+                          <div className="w-full text-left">
+                            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2">Skill Gaps</p>
+                            <div className="flex flex-wrap gap-1.5">
+                              {skillGaps.slice(0, 3).map((gap, idx) => {
+                                const label = typeof gap === 'string' ? gap : gap.skill
+                                return (
+                                  <span key={idx} className="bg-red-50 text-red-600 border border-red-100 text-[10px] font-bold px-2.5 py-1 rounded-lg">
+                                    {label}
+                                  </span>
+                                )
+                              })}
+                              {skillGaps.length > 3 && (
+                                <button
+                                  onClick={() => setActiveNav('Career Path')}
+                                  className="text-[10px] font-bold text-gray-400 hover:text-[#2D5C30] px-2.5 py-1 rounded-lg bg-gray-50 border border-gray-100 transition-colors"
+                                >
+                                  +{skillGaps.length - 3} lainnya →
+                                </button>
+                              )}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* CTA to Career Path */}
+                        <button
+                          onClick={() => setActiveNav('Career Path')}
+                          className="mt-4 w-full py-2 text-xs font-bold text-[#2D5C30] border border-[#BCE3C5] rounded-xl hover:bg-[#F0F8F1] transition-all"
+                        >
+                          Lihat Analisis Lengkap →
+                        </button>
                       </>
                     ) : (
                       <div className="flex flex-col items-center justify-center flex-1 py-12 space-y-3 text-center">
